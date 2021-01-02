@@ -17,7 +17,7 @@ font_data = ExtResource( 3 )
 [node name="Card" type="PanelContainer"]
 margin_right = 300.0
 margin_bottom = 250.0
-rect_min_size = Vector2( 300, 250 )
+rect_min_size = Vector2( 300, 270 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,14 +32,15 @@ texture = SubResource( 1 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 293.0
-margin_bottom = 243.0
+margin_bottom = 263.0
 rect_clip_content = true
 
-[node name="Card Name" type="Label" parent="VBoxContainer"]
+[node name="Card_Name" type="Label" parent="VBoxContainer"]
 margin_right = 286.0
 margin_bottom = 57.0
 custom_fonts/font = ExtResource( 2 )
 text = "Priest-O-Gone"
+align = 1
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
@@ -50,25 +51,26 @@ margin_bottom = 65.0
 [node name="Stats" type="Label" parent="VBoxContainer"]
 margin_top = 69.0
 margin_right = 286.0
-margin_bottom = 124.0
+margin_bottom = 128.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "Minions gain the ability to conjure ship priests."
 autowrap = true
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 176.0
+margin_top = 188.0
 margin_right = 286.0
-margin_bottom = 180.0
+margin_bottom = 192.0
 size_flags_vertical = 10
 
 [node name="PriceContainer" type="HSplitContainer" parent="VBoxContainer"]
-margin_top = 196.0
+margin_top = 216.0
 margin_right = 286.0
-margin_bottom = 236.0
+margin_bottom = 256.0
 rect_min_size = Vector2( 0, 30 )
 hint_tooltip = "Buy this trait for your minions"
 size_flags_vertical = 10
+dragger_visibility = 1
 
 [node name="Price" type="Label" parent="VBoxContainer/PriceContainer"]
 margin_right = 51.0
@@ -81,3 +83,20 @@ margin_left = 63.0
 margin_right = 286.0
 margin_bottom = 40.0
 text = "Buy"
+
+[node name="RelationshipLines" type="Node2D" parent="."]
+position = Vector2( 300, 135 )
+
+[node name="Line1" type="Line2D" parent="RelationshipLines"]
+points = PoolVector2Array( 1.34775, 1.60936, 207.145, -66.0989 )
+width = 4.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2" type="Line2D" parent="RelationshipLines"]
+width = 4.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Receiving" type="Node2D" parent="."]
+position = Vector2( 0, 135 )

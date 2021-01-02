@@ -29,5 +29,7 @@ func _process(_delta):
 	touchJustNow = false
 	if Input.is_action_just_pressed("game_quit"):
 		get_tree().quit()
+	if Input.is_action_just_pressed("game_restart"):
+		var _i = get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("game_fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
