@@ -6,13 +6,21 @@ extends Control
 # var b = "text"
 
 onready var mainCont = $Main
+var oldSize = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Animations/Transitions.play("FirstBoot")
+	$Curtain.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	mainCont.rect_size = get_viewport().size
+	if mainCont.rect_size != oldSize:
+		print(mainCont.rect_size)
+		oldSize = mainCont.rect_size
+	if Input.is_action_just_pressed("ui_accept"):
+		print("Window size: " + str(get_viewport().size))
+		print("Set size" + str(mainCont.rect_size))
 

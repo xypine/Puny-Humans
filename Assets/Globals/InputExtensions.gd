@@ -25,5 +25,9 @@ func _unhandled_input(event):
 			touchCount -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	touchJustNow = false
+	if Input.is_action_just_pressed("game_quit"):
+		get_tree().quit()
+	if Input.is_action_just_pressed("game_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen

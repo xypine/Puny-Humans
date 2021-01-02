@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Upgrade/MapView.gd" type="Script" id=2]
 [ext_resource path="res://Assets/textures/grid/simpleGrid.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Cards/CardDev.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NoiseTexture" id=1]
 width = 142
 
 [sub_resource type="NoiseTexture" id=2]
-width = 256
-height = 256
+width = 500
+height = 500
 
 [sub_resource type="Animation" id=3]
 resource_name = "FirstBoot"
@@ -38,6 +39,8 @@ tracks/1/keys = {
 "values": [ -91.0, 0.0 ]
 }
 
+[sub_resource type="NoiseTexture" id=4]
+
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,8 +50,8 @@ __meta__ = {
 }
 
 [node name="Main" type="TabContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,27 +69,33 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Upgrade"]
-margin_right = 1080.0
-margin_bottom = 564.0
-rect_min_size = Vector2( 900, 500 )
+margin_right = 1912.0
+margin_bottom = 1044.0
 
 [node name="MapView" type="VBoxContainer" parent="Main/Upgrade/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 564.0
-rect_min_size = Vector2( 600, 0 )
+margin_right = 1400.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 1400, 0 )
 script = ExtResource( 2 )
 
 [node name="MapLabel" type="Label" parent="Main/Upgrade/HBoxContainer/MapView"]
-margin_right = 600.0
+margin_right = 1400.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 500, 0 )
 text = "Upgrademap"
 
-[node name="Panel" type="Panel" parent="Main/Upgrade/HBoxContainer/MapView"]
+[node name="HScrollBar2" type="HScrollBar" parent="Main/Upgrade/HBoxContainer/MapView"]
 margin_top = 18.0
-margin_right = 600.0
-margin_bottom = 518.0
-rect_min_size = Vector2( 500, 500 )
+margin_right = 1400.0
+margin_bottom = 30.0
+mouse_default_cursor_shape = 15
+max_value = 200.0
+
+[node name="Panel" type="Panel" parent="Main/Upgrade/HBoxContainer/MapView"]
+margin_top = 34.0
+margin_right = 1400.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 1200, 950 )
 rect_clip_content = true
 
 [node name="Helper" type="Control" parent="Main/Upgrade/HBoxContainer/MapView/Panel"]
@@ -98,55 +107,54 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="Main/Upgrade/HBoxContainer/MapView/Panel/Helper"]
 self_modulate = Color( 0.380392, 0.380392, 0.380392, 1 )
-margin_right = 1020.0
-margin_bottom = 512.0
+margin_right = 2273.0
+margin_bottom = 1000.0
 texture = ExtResource( 3 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Main/Upgrade/HBoxContainer/MapView/Panel/Helper"]
-margin_left = 327.0
-margin_top = 211.0
-margin_right = 373.0
-margin_bottom = 231.0
-text = "Hello"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CardDev01" parent="Main/Upgrade/HBoxContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
+margin_left = 220.954
+margin_top = 334.105
+margin_right = 520.954
+margin_bottom = 634.105
 
 [node name="HScrollBar" type="HScrollBar" parent="Main/Upgrade/HBoxContainer/MapView"]
-margin_top = 522.0
-margin_right = 600.0
-margin_bottom = 534.0
+margin_top = 988.0
+margin_right = 1400.0
+margin_bottom = 1000.0
 mouse_default_cursor_shape = 15
 
 [node name="Filler" type="TextureRect" parent="Main/Upgrade/HBoxContainer"]
+visible = false
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 604.0
-margin_right = 746.0
+margin_left = 504.0
+margin_right = 811.0
 margin_bottom = 564.0
+size_flags_horizontal = 3
 texture = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/Upgrade/HBoxContainer"]
-margin_left = 750.0
-margin_right = 1022.0
-margin_bottom = 564.0
+margin_left = 1412.0
+margin_right = 1912.0
+margin_bottom = 1044.0
 rect_min_size = Vector2( 272, 0 )
+size_flags_horizontal = 10
 
 [node name="Label" type="Label" parent="Main/Upgrade/HBoxContainer/VBoxContainer"]
-margin_right = 272.0
+margin_right = 500.0
 margin_bottom = 14.0
-text = "Chutulai"
+text = "Minion"
 
 [node name="TextureRect" type="TextureRect" parent="Main/Upgrade/HBoxContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 272.0
-margin_bottom = 274.0
+margin_right = 500.0
+margin_bottom = 518.0
 texture = SubResource( 2 )
 
 [node name="Attac" type="Tabs" parent="Main"]
@@ -165,6 +173,12 @@ margin_bottom = 40.0
 [node name="Transitions" type="AnimationPlayer" parent="Animations"]
 playback_speed = 2.0
 anims/FirstBoot = SubResource( 3 )
+
+[node name="Curtain" type="Sprite" parent="."]
+visible = false
+position = Vector2( 969.094, 555.293 )
+scale = Vector2( 4.07639, 2.48084 )
+texture = SubResource( 4 )
 [connection signal="mouse_entered" from="Main/Upgrade/HBoxContainer/MapView/Panel" to="Main/Upgrade/HBoxContainer/MapView" method="_on_Panel_mouse_entered"]
 [connection signal="mouse_exited" from="Main/Upgrade/HBoxContainer/MapView/Panel" to="Main/Upgrade/HBoxContainer/MapView" method="_on_Panel_mouse_exited"]
 [connection signal="mouse_entered" from="Main/Upgrade/HBoxContainer/MapView/Panel/Helper/TextureRect" to="Main/Upgrade/HBoxContainer/MapView" method="_on_TextureRect_mouse_entered"]
