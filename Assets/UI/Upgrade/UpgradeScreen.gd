@@ -16,6 +16,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_just_pressed("tab_next"):
+		mainCont.current_tab += 1
+	if Input.is_action_just_pressed("tab_prev"):
+		mainCont.current_tab -= 1
+	mainCont.current_tab = min(3, mainCont.current_tab)
+	mainCont.current_tab = max(1, mainCont.current_tab)
 	mainCont.rect_size = get_viewport().size
 	if mainCont.rect_size != oldSize:
 		print(mainCont.rect_size)
