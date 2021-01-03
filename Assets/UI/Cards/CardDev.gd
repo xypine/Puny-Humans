@@ -41,9 +41,15 @@ func updateInfo():
 	l_cardPrice.text= str(CardPrice) + str(CPrice_currency)
 	btn_buy.disabled = (not unlocked) or bought
 	if bought:
-		l_cardName.self_modulate = Color(.1, 1, .1, 1)
+		l_cardName.self_modulate = Color(.2, 1, .2, 1)
 	else:
 		l_cardName.self_modulate = Color(1, 1, 1, 1)
+	if bought:
+		l_cardPrice.self_modulate = Color(.65, .7, .65, 1)
+	elif not Engine.editor_hint and GameData.money < CardPrice:
+		l_cardPrice.self_modulate = Color(1, .2, .2, 1)
+	else:
+		l_cardPrice.self_modulate = Color(1, 1, 1, 1)
 func updateLinePoints():
 	var next1 = nextValid(nextCard1)
 	if next1 and "receivingPos" in next1:
@@ -96,5 +102,9 @@ func _process(_delta):
 
 
 func _on_Button_pressed():
-	if unlocked:
+	if unlocked and GameData.money >= CardPrice:
+		GameData.money -= CardPrice
 		bought = true
+		updateUnlocked()
+		updateInfo()
+		updateLinePoints()

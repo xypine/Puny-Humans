@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Upgrade/MapView.gd" type="Script" id=2]
@@ -8,22 +8,11 @@
 [ext_resource path="res://Assets/2DScenes/warzone/WAAR.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Fonts/Pirata_One/PirataOne-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/Fonts/Redressed/Redressed-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Fonts/Prefabs/Price.tres" type="DynamicFont" id=9]
 
-[sub_resource type="DynamicFont" id=5]
-size = 70
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 7 )
-
-[sub_resource type="NoiseTexture" id=2]
-width = 500
-height = 500
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Main/Upgrade/HSplitContainer/MapView:rect_position")
+tracks/0/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/MapView:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -35,7 +24,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 500 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Main/Upgrade/HSplitContainer/VBoxContainer:rect_rotation")
+tracks/1/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer:rect_rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -47,7 +36,7 @@ tracks/1/keys = {
 "values": [ -91.0, 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Main/Upgrade/HSplitContainer/MapView:modulate")
+tracks/2/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/MapView:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -59,7 +48,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../Main/Upgrade/HSplitContainer/VBoxContainer:modulate")
+tracks/3/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -71,7 +60,19 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="NoiseTexture" id=4]
+[sub_resource type="NoiseTexture" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="NoiseTexture" id=5]
+width = 500
+height = 500
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -81,118 +82,171 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main" type="TabContainer" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="[Q]" type="MarginContainer" parent="Main"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Title" type="MarginContainer" parent="Main"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="TextureRect" type="TextureRect" parent="Main/Title"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-texture = ExtResource( 5 )
-
-[node name="Title" type="Label" parent="Main/Title/TextureRect"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -41.5
-margin_bottom = 41.5
-custom_fonts/font = SubResource( 5 )
-text = "Puny Humans"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Main/Title/TextureRect"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -498.5
-margin_bottom = -445.5
-custom_fonts/font = SubResource( 1 )
-text = "Press [E] to play"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Upgrade" type="MarginContainer" parent="Main"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Upgrade"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-
-[node name="HSplitContainer" type="HSplitContainer" parent="Main/Upgrade"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-custom_constants/autohide = 1
-split_offset = 185
-
-[node name="MapView" type="VBoxContainer" parent="Main/Upgrade/HSplitContainer"]
-margin_right = 1385.0
-margin_bottom = 1080.0
-rect_min_size = Vector2( 1000, 0 )
-script = ExtResource( 2 )
-
-[node name="MapLabel" type="Label" parent="Main/Upgrade/HSplitContainer/MapView"]
-margin_right = 1385.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 500, 0 )
-text = "Upgrademap"
-
-[node name="HScrollBar2" type="HScrollBar" parent="Main/Upgrade/HSplitContainer/MapView"]
-margin_top = 18.0
-margin_right = 1385.0
-margin_bottom = 30.0
-mouse_default_cursor_shape = 15
-max_value = 200.0
-
-[node name="Panel" type="Panel" parent="Main/Upgrade/HSplitContainer/MapView"]
-margin_top = 34.0
-margin_right = 1385.0
-margin_bottom = 984.0
-rect_min_size = Vector2( 1200, 950 )
-rect_clip_content = true
-
-[node name="Helper" type="Control" parent="Main/Upgrade/HSplitContainer/MapView/Panel"]
+[node name="Animations" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper"]
+[node name="Transitions" type="AnimationPlayer" parent="Animations"]
+playback_speed = 2.0
+anims/FirstBoot = SubResource( 1 )
+
+[node name="Curtain" type="Sprite" parent="."]
+visible = false
+position = Vector2( 969.094, 555.293 )
+scale = Vector2( 4.07639, 2.48084 )
+texture = SubResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="TabContainer" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 1026.0
+rect_min_size = Vector2( 1920, 1026 )
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="[Q]" type="MarginContainer" parent="VBoxContainer/Main"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Title" type="MarginContainer" parent="VBoxContainer/Main"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Control" type="Control" parent="VBoxContainer/Main/Title"]
+margin_right = 1912.0
+margin_bottom = 990.0
+
+[node name="Title" type="Label" parent="VBoxContainer/Main/Title/Control"]
+margin_top = 453.0
+margin_right = 1920.0
+margin_bottom = 536.0
+custom_fonts/font = SubResource( 3 )
+text = "Puny Humans"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Title/Control"]
+margin_top = 536.0
+margin_right = 1920.0
+margin_bottom = 589.0
+custom_fonts/font = SubResource( 4 )
+text = "Press [E] to play"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Title"]
+visible = false
+self_modulate = Color( 0.4, 0.4, 0.4, 0.0392157 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 5 )
+
+[node name="Attac" type="Tabs" parent="VBoxContainer/Main"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ViewportContainer" type="ViewportContainer" parent="VBoxContainer/Main/Attac"]
+margin_top = -32.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="VBoxContainer/Main/Attac/ViewportContainer"]
+size = Vector2( 1920, 1080 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Waar" parent="VBoxContainer/Main/Attac/ViewportContainer/Viewport" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )
+
+[node name="Upgrade" type="MarginContainer" parent="VBoxContainer/Main"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Main/Upgrade"]
+margin_right = 1912.0
+margin_bottom = 990.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/Main/Upgrade"]
+margin_right = 1912.0
+margin_bottom = 990.0
+custom_constants/autohide = 1
+split_offset = 185
+
+[node name="MapView" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
+margin_right = 1385.0
+margin_bottom = 990.0
+rect_min_size = Vector2( 1000, 0 )
+script = ExtResource( 2 )
+
+[node name="MapLabel" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
+margin_right = 1385.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 500, 0 )
+text = "Upgrademap"
+
+[node name="HScrollBar2" type="HScrollBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
+margin_top = 18.0
+margin_right = 1385.0
+margin_bottom = 30.0
+mouse_default_cursor_shape = 15
+max_value = 200.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
+margin_top = 34.0
+margin_right = 1385.0
+margin_bottom = 974.0
+rect_min_size = Vector2( 1200, 800 )
+rect_clip_content = true
+size_flags_vertical = 3
+
+[node name="Helper" type="Control" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper"]
 self_modulate = Color( 0.380392, 0.380392, 0.380392, 1 )
 margin_right = 2273.0
 margin_bottom = 1000.0
@@ -202,86 +256,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardDev01" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
+[node name="CardDev01" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 141.024
 margin_top = 296.348
 margin_right = 441.024
 margin_bottom = 596.348
-CardName = "Priest-O-Gone"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
 nextCard1 = NodePath("../CardDev02")
 nextCard2 = NodePath("../CardDev03")
 
-[node name="CardDev02" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
+[node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 726.541
 margin_top = 113.891
 margin_right = 1026.54
 margin_bottom = 413.891
 CardName = "Priest-O-Gone2"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
 nextCard1 = NodePath("../CardDev04")
-nextCard2 = NodePath("")
 
-[node name="CardDev03" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
+[node name="CardDev03" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 737.22
 margin_top = 450.271
 margin_right = 1037.22
 margin_bottom = 750.271
 CardName = "Priest-O-Gone3"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
 
-[node name="CardDev04" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
+[node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 1124.37
 margin_top = 21.1164
 margin_right = 1424.37
 margin_bottom = 321.116
 CardName = "Sahinaa"
 CardDesc = "Yeet"
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
 
-[node name="HScrollBar" type="HScrollBar" parent="Main/Upgrade/HSplitContainer/MapView"]
-margin_top = 988.0
+[node name="HScrollBar" type="HScrollBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
+margin_top = 978.0
 margin_right = 1385.0
-margin_bottom = 1000.0
+margin_bottom = 990.0
 mouse_default_cursor_shape = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/Upgrade/HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
 margin_left = 1397.0
 margin_right = 1920.0
-margin_bottom = 1080.0
+margin_bottom = 990.0
 rect_min_size = Vector2( 272, 0 )
 
-[node name="Label" type="Label" parent="Main/Upgrade/HSplitContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
 margin_right = 523.0
 margin_bottom = 14.0
 text = "Minion"
 
-[node name="TextureRect" type="TextureRect" parent="Main/Upgrade/HSplitContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
 margin_top = 18.0
 margin_right = 523.0
 margin_bottom = 518.0
-texture = SubResource( 2 )
+texture = SubResource( 5 )
 
-[node name="Attac" type="Tabs" parent="Main"]
+[node name="[E]" type="MarginContainer" parent="VBoxContainer/Main"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -290,32 +321,18 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Waar" parent="Main/Attac" instance=ExtResource( 6 )]
-position = Vector2( -4, 0 )
+[node name="HUD" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 1030.0
+margin_right = 1920.0
+margin_bottom = 1070.0
 
-[node name="[E]" type="MarginContainer" parent="Main"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Animations" type="Control" parent="."]
-margin_right = 40.0
+[node name="Money" type="Label" parent="VBoxContainer/HUD"]
+margin_right = 100.0
 margin_bottom = 40.0
-
-[node name="Transitions" type="AnimationPlayer" parent="Animations"]
-playback_speed = 2.0
-anims/FirstBoot = SubResource( 3 )
-
-[node name="Curtain" type="Sprite" parent="."]
-visible = false
-position = Vector2( 969.094, 555.293 )
-scale = Vector2( 4.07639, 2.48084 )
-texture = SubResource( 4 )
-[connection signal="mouse_entered" from="Main/Upgrade/HSplitContainer/MapView/Panel" to="Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_entered"]
-[connection signal="mouse_exited" from="Main/Upgrade/HSplitContainer/MapView/Panel" to="Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_exited"]
-[connection signal="mouse_entered" from="Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_entered"]
-[connection signal="mouse_exited" from="Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_exited"]
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/font = ExtResource( 9 )
+text = "0$"
+[connection signal="mouse_entered" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_exited"]

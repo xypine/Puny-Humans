@@ -23,13 +23,14 @@ _global_script_class_icons={
 config/name="Puny Humans"
 config/description="Originally an entry for the Weekly Game Jam #182"
 run/main_scene="res://Assets/UI/Upgrade/UpgradeScreen.tscn"
-boot_splash/image="res://Assets/meta/icon_400k.png"
+boot_splash/image="res://Assets/meta/banner/untitled.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Assets/meta/icon.png"
 
 [autoload]
 
 InputExt="*res://Assets/Globals/InputExtensions.gd"
+GameData="*res://Assets/Globals/GameData.gd"
 
 [display]
 
