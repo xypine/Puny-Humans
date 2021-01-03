@@ -93,3 +93,8 @@ func _process(_delta):
 		updateUnlocked()
 		updateInfo()
 		updateLinePoints()
+
+
+func _on_Button_pressed():
+	if unlocked:
+		bought = true

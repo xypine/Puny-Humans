@@ -1,9 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Upgrade/MapView.gd" type="Script" id=2]
 [ext_resource path="res://Assets/textures/grid/simpleGrid.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/Cards/CardDev.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/meta/banner/untitled.png" type="Texture" id=5]
+[ext_resource path="res://Assets/2DScenes/warzone/WAAR.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Fonts/Pirata_One/PirataOne-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 7 )
 
 [sub_resource type="NoiseTexture" id=1]
 width = 500
@@ -95,9 +102,26 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="VideoPlayer" type="VideoPlayer" parent="Main/Title"]
-margin_right = 1912.0
-margin_bottom = 1044.0
+[node name="TextureRect" type="TextureRect" parent="Main/Title"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Main/Title/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.5
+margin_top = -28.5
+margin_right = 141.5
+margin_bottom = 28.5
+custom_fonts/font = SubResource( 4 )
+text = "Press [E] to play"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Upgrade" type="MarginContainer" parent="Main"]
 visible = false
@@ -112,18 +136,18 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Upgrade"]
-margin_right = 1912.0
-margin_bottom = 1044.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 
 [node name="HSplitContainer" type="HSplitContainer" parent="Main/Upgrade"]
-margin_right = 1912.0
-margin_bottom = 1044.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 custom_constants/autohide = 1
 split_offset = 185
 
 [node name="MapView" type="VBoxContainer" parent="Main/Upgrade/HSplitContainer"]
 margin_right = 1385.0
-margin_bottom = 1044.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 1000, 0 )
 script = ExtResource( 2 )
 
@@ -205,18 +229,18 @@ mouse_default_cursor_shape = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main/Upgrade/HSplitContainer"]
 margin_left = 1397.0
-margin_right = 1912.0
-margin_bottom = 1044.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 272, 0 )
 
 [node name="Label" type="Label" parent="Main/Upgrade/HSplitContainer/VBoxContainer"]
-margin_right = 515.0
+margin_right = 523.0
 margin_bottom = 14.0
 text = "Minion"
 
 [node name="TextureRect" type="TextureRect" parent="Main/Upgrade/HSplitContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 515.0
+margin_right = 523.0
 margin_bottom = 518.0
 texture = SubResource( 1 )
 
@@ -228,6 +252,9 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Waar" parent="Main/Attac" instance=ExtResource( 6 )]
+position = Vector2( -4, 0 )
 
 [node name="[E]" type="MarginContainer" parent="Main"]
 visible = false

@@ -82,21 +82,24 @@ text = "300$"
 margin_left = 63.0
 margin_right = 286.0
 margin_bottom = 40.0
+disabled = true
 text = "Buy"
 
 [node name="RelationshipLines" type="Node2D" parent="."]
 position = Vector2( 300, 135 )
 
 [node name="Line1" type="Line2D" parent="RelationshipLines"]
-points = PoolVector2Array( 1.34775, 1.60936, 207.145, -66.0989 )
-width = 4.0
+width = 2.0
+default_color = Color( 0.4, 0.501961, 1, 0.733333 )
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Line2" type="Line2D" parent="RelationshipLines"]
-width = 4.0
+width = 2.0
+default_color = Color( 0.4, 0.501961, 1, 0.733333 )
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Receiving" type="Node2D" parent="."]
 position = Vector2( 0, 135 )
+[connection signal="pressed" from="VBoxContainer/PriceContainer/Button" to="." method="_on_Button_pressed"]

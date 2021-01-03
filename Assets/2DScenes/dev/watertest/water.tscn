@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/2DScenes/dev/watertest/Sprite.gd" type="Script" id=1]
+[ext_resource path="res://Assets/textures/pbr/Water_002_NORM.jpg" type="Texture" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 0.1
+
+[sub_resource type="NoiseTexture" id=2]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 536.721, 529.848 )
+texture = SubResource( 2 )
+normal_map = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 1024 )
+script = ExtResource( 1 )
