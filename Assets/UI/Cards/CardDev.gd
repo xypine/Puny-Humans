@@ -73,14 +73,17 @@ func updateLinePoints():
 		line2.points = []
 func updateUnlocked():
 	if str(previus) != "" and is_instance_valid(previus):
-		if previus.bought:
+		if previus.bought and (Engine.editor_hint or ((not Engine.editor_hint) and GameData.money >= CardPrice)):
 			unlocked = true
 		else:
 			unlocked = false
 	elif needsPreviusBought:
 		unlocked = false
 	else:
-		unlocked = true
+		if Engine.editor_hint or ((not Engine.editor_hint) and GameData.money >= CardPrice):
+			unlocked = true
+		else:
+			unlocked = false
 func nextValid(next):
 	if next == "":
 		return false
