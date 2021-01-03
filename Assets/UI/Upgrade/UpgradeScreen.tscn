@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Upgrade/MapView.gd" type="Script" id=2]
@@ -7,17 +7,21 @@
 [ext_resource path="res://Assets/meta/banner/untitled.png" type="Texture" id=5]
 [ext_resource path="res://Assets/2DScenes/warzone/WAAR.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Fonts/Pirata_One/PirataOne-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Fonts/Redressed/Redressed-Regular.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
+size = 70
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="NoiseTexture" id=1]
+[sub_resource type="NoiseTexture" id=2]
 width = 500
 height = 500
 
-[sub_resource type="Animation" id=2]
-resource_name = "FirstBoot"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Main/Upgrade/HSplitContainer/MapView:rect_position")
 tracks/0/interp = 1
@@ -67,7 +71,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="NoiseTexture" id=3]
+[sub_resource type="NoiseTexture" id=4]
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -107,16 +111,26 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Main/Title/TextureRect"]
-anchor_left = 0.5
+[node name="Title" type="Label" parent="Main/Title/TextureRect"]
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -141.5
-margin_top = -28.5
-margin_right = 141.5
-margin_bottom = 28.5
-custom_fonts/font = SubResource( 4 )
+margin_top = -41.5
+margin_bottom = 41.5
+custom_fonts/font = SubResource( 5 )
+text = "Puny Humans"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/Title/TextureRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -498.5
+margin_bottom = -445.5
+custom_fonts/font = SubResource( 1 )
 text = "Press [E] to play"
 align = 1
 __meta__ = {
@@ -193,6 +207,10 @@ margin_left = 141.024
 margin_top = 296.348
 margin_right = 441.024
 margin_bottom = 596.348
+CardName = "Priest-O-Gone"
+CardDesc = "Minions gain the ability to conjure ship priests."
+CardPrice = 300
+CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
 nextCard1 = NodePath("../CardDev02")
@@ -204,7 +222,13 @@ margin_top = 113.891
 margin_right = 1026.54
 margin_bottom = 413.891
 CardName = "Priest-O-Gone2"
+CardDesc = "Minions gain the ability to conjure ship priests."
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
 nextCard1 = NodePath("../CardDev04")
+nextCard2 = NodePath("")
 
 [node name="CardDev03" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 737.22
@@ -212,6 +236,13 @@ margin_top = 450.271
 margin_right = 1037.22
 margin_bottom = 750.271
 CardName = "Priest-O-Gone3"
+CardDesc = "Minions gain the ability to conjure ship priests."
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
 
 [node name="CardDev04" parent="Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 1124.37
@@ -220,6 +251,12 @@ margin_right = 1424.37
 margin_bottom = 321.116
 CardName = "Sahinaa"
 CardDesc = "Yeet"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
 
 [node name="HScrollBar" type="HScrollBar" parent="Main/Upgrade/HSplitContainer/MapView"]
 margin_top = 988.0
@@ -242,7 +279,7 @@ text = "Minion"
 margin_top = 18.0
 margin_right = 523.0
 margin_bottom = 518.0
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 
 [node name="Attac" type="Tabs" parent="Main"]
 visible = false
@@ -271,13 +308,13 @@ margin_bottom = 40.0
 
 [node name="Transitions" type="AnimationPlayer" parent="Animations"]
 playback_speed = 2.0
-anims/FirstBoot = SubResource( 2 )
+anims/FirstBoot = SubResource( 3 )
 
 [node name="Curtain" type="Sprite" parent="."]
 visible = false
 position = Vector2( 969.094, 555.293 )
 scale = Vector2( 4.07639, 2.48084 )
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 [connection signal="mouse_entered" from="Main/Upgrade/HSplitContainer/MapView/Panel" to="Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_entered"]
 [connection signal="mouse_exited" from="Main/Upgrade/HSplitContainer/MapView/Panel" to="Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_exited"]
 [connection signal="mouse_entered" from="Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_entered"]
