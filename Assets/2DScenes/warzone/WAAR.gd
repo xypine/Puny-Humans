@@ -12,7 +12,7 @@ func _ready():
 
 var last = Vector2(0, 0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$Things.set_cellv(last, -1)
 	var p = to_local(get_global_mouse_position())/.2
 	var t = $TileMap.world_to_map(p)
