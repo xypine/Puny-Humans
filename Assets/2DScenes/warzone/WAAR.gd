@@ -13,10 +13,10 @@ func _ready():
 var last = Vector2(0, 0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$Things.set_cellv(last, -1)
-	var p = to_local(get_global_mouse_position())/.2
+	$Cursor.set_cellv(last, -1)
+	var p = to_local(get_global_mouse_position())/$TileMap.scale.x
 	var t = $TileMap.world_to_map(p)
-	$Things.set_cellv(t, 0)
+	$Cursor.set_cellv(t, 0)
 	last = t
 	if Input.is_action_just_pressed("ui_grab"):
 		print(p)

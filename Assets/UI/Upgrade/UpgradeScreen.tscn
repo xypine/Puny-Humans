@@ -71,13 +71,13 @@ font_data = ExtResource( 8 )
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 outline_size = 1
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="NoiseTexture" id=5]
+[sub_resource type="NoiseTexture" id=6]
 width = 500
 height = 500
 
@@ -123,7 +123,6 @@ __meta__ = {
 }
 
 [node name="[Q]" type="MarginContainer" parent="VBoxContainer/Main"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -132,6 +131,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Title" type="MarginContainer" parent="VBoxContainer/Main"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -170,7 +170,7 @@ margin_left = 5.55591
 margin_top = 0.793701
 margin_right = 572.556
 margin_bottom = 120.794
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Please toggle fullscreen!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -333,7 +333,7 @@ text = "Minion"
 margin_top = 18.0
 margin_right = 515.0
 margin_bottom = 518.0
-texture = SubResource( 5 )
+texture = SubResource( 6 )
 
 [node name="[E]" type="MarginContainer" parent="VBoxContainer/Main"]
 visible = false
