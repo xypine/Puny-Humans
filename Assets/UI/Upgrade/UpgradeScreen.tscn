@@ -123,6 +123,7 @@ __meta__ = {
 }
 
 [node name="[Q]" type="MarginContainer" parent="VBoxContainer/Main"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -131,7 +132,6 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Title" type="MarginContainer" parent="VBoxContainer/Main"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -166,15 +166,72 @@ __meta__ = {
 }
 
 [node name="FScreenWarn" type="Label" parent="VBoxContainer/Main/Title/Control"]
-margin_left = 5.55591
-margin_top = 0.793701
-margin_right = 572.556
-margin_bottom = 120.794
+margin_left = 6.0
+margin_top = 1.0
+margin_right = 1912.0
+margin_bottom = 121.0
 custom_fonts/font = SubResource( 5 )
 text = "Please toggle fullscreen!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InputSettings" type="Panel" parent="VBoxContainer/Main/Title/Control"]
+margin_left = 744.0
+margin_top = 631.0
+margin_right = 1182.0
+margin_bottom = 855.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Title/Control/InputSettings"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Input Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Main/Title/Control/InputSettings"]
+margin_left = 6.0
+margin_top = 20.0
+margin_right = 99.0
+margin_bottom = 24.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Title/Control/InputSettings"]
+margin_left = 12.0
+margin_top = 27.0
+margin_right = 429.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Title/Control/InputSettings/VBoxContainer"]
+margin_right = 417.0
+margin_bottom = 14.0
+text = "Mouse X-Offset"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Main/Title/Control/InputSettings/VBoxContainer"]
+margin_top = 18.0
+margin_right = 417.0
+margin_bottom = 34.0
+min_value = -100.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Title/Control/InputSettings/VBoxContainer"]
+margin_top = 38.0
+margin_right = 417.0
+margin_bottom = 52.0
+text = "Mouse Y-Offset"
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer/Main/Title/Control/InputSettings/VBoxContainer"]
+margin_top = 56.0
+margin_right = 417.0
+margin_bottom = 72.0
+min_value = -100.0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Title"]
 visible = false
@@ -282,6 +339,10 @@ margin_left = 141.024
 margin_top = 296.348
 margin_right = 441.024
 margin_bottom = 596.348
+CardName = "Priest-O-Gone"
+CardDesc = "Minions gain the ability to conjure ship priests."
+CardPrice = 300
+CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
 nextCard1 = NodePath("../CardDev02")
@@ -293,7 +354,13 @@ margin_top = 113.891
 margin_right = 1026.54
 margin_bottom = 413.891
 CardName = "Priest-O-Gone2"
+CardDesc = "Minions gain the ability to conjure ship priests."
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
 nextCard1 = NodePath("../CardDev04")
+nextCard2 = NodePath("")
 
 [node name="CardDev03" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 737.22
@@ -301,6 +368,13 @@ margin_top = 450.271
 margin_right = 1037.22
 margin_bottom = 750.271
 CardName = "Priest-O-Gone3"
+CardDesc = "Minions gain the ability to conjure ship priests."
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
 
 [node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
 margin_left = 1124.37
@@ -309,6 +383,12 @@ margin_right = 1424.37
 margin_bottom = 321.116
 CardName = "Sahinaa"
 CardDesc = "Yeet"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
 
 [node name="HScrollBar" type="HScrollBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
 margin_top = 977.0

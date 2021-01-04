@@ -31,6 +31,7 @@ config/icon="res://Assets/meta/icon.png"
 
 InputExt="*res://Assets/Globals/InputExtensions.gd"
 GameData="*res://Assets/Globals/GameData.gd"
+GlobalScreen="*res://Assets/Globals/GlobalScreen.tscn"
 
 [display]
 
@@ -39,7 +40,7 @@ window/size/height=1080
 window/size/fullscreen=true
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [input]
 

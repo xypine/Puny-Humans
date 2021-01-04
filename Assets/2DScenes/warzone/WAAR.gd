@@ -14,11 +14,15 @@ var last = Vector2(0, 0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$Cursor.set_cellv(last, -1)
-	var p = to_local(get_global_mouse_position())/$TileMap.scale.x
+	var v = GlobalScreen.get_viewport().size
+	var view = Vector2(1920, 1080) / v
+	var m = GlobalScreen.get_global_mouse_position()
+	var p = (m)/$TileMap.scale.x #to_local, get_global_mouse_position()
 	var t = $TileMap.world_to_map(p)
 	$Cursor.set_cellv(t, 0)
 	last = t
 	if Input.is_action_just_pressed("ui_grab"):
-		print(p)
+		print(v)
+		print(view)
 		print(t)
 		print()
