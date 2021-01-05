@@ -4,15 +4,20 @@ export(CellType) var type = CellType.ShipSmall
 
 onready var Grid = get_parent()
 
+onready var healthbar = $Health
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+export(float) var maxHealth = 100.0
+export(float) var health = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	healthbar.max_value = maxHealth
+	healthbar.value = health
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	healthbar.value = health
 func do_move(input_direction):
 	var target_position = Grid.request_move(self, input_direction)
 	if target_position:
@@ -36,6 +41,4 @@ func move_to(target_position):
 	yield($AnimationPlayer, "animation_finished")
 	
 	set_process(true)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+

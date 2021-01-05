@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/Upgrade/MapView.gd" type="Script" id=2]
 [ext_resource path="res://Assets/textures/grid/simpleGrid.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/Cards/CardDev.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/meta/banner/untitled.png" type="Texture" id=5]
@@ -18,7 +17,7 @@
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
-tracks/0/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/MapView:rect_position")
+tracks/0/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer:rect_rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -27,39 +26,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 500 ), Vector2( 0, 0 ) ]
+"values": [ -91.0, 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer:rect_rotation")
+tracks/1/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -91.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/MapView:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -113,7 +88,7 @@ __meta__ = {
 }
 
 [node name="Main" type="TabContainer" parent="VBoxContainer"]
-margin_right = 2419.0
+margin_right = 1920.0
 margin_bottom = 1026.0
 rect_min_size = Vector2( 1920, 1026 )
 rect_clip_content = true
@@ -140,7 +115,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="TitleSubControl" type="Control" parent="VBoxContainer/Main/Title"]
-margin_right = 2411.0
+margin_right = 1912.0
 margin_bottom = 990.0
 script = ExtResource( 12 )
 
@@ -318,7 +293,7 @@ texture = ExtResource( 11 )
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Title"]
 visible = false
 self_modulate = Color( 0.4, 0.4, 0.4, 0.0392157 )
-margin_right = 2411.0
+margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 5 )
 
@@ -362,11 +337,11 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Main/Upgrade"]
-margin_right = 2411.0
+margin_right = 1912.0
 margin_bottom = 990.0
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/Main/Upgrade"]
-margin_right = 2411.0
+margin_right = 1912.0
 margin_bottom = 990.0
 custom_constants/autohide = 1
 split_offset = 185
@@ -376,14 +351,14 @@ margin_right = 1384.0
 margin_bottom = 990.0
 rect_min_size = Vector2( 1199.38, 0 )
 follow_focus = true
-scroll_horizontal = 333
+scroll_horizontal = 500
 scroll_vertical = 333
 script = ExtResource( 15 )
 
 [node name="Helper2" type="Control" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer"]
-margin_left = -333.0
+margin_left = -500.0
 margin_top = -333.0
-margin_right = 2667.0
+margin_right = 2500.0
 margin_bottom = 2167.0
 rect_min_size = Vector2( 3000, 2500 )
 __meta__ = {
@@ -407,14 +382,10 @@ margin_left = 737.004
 margin_top = 683.655
 margin_right = 1037.0
 margin_bottom = 983.655
-CardName = "Priest-O-Gone"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
+nextCard1 = NodePath("../CardDev02")
+nextCard2 = NodePath("../CardDev03")
 
 [node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1213.74
@@ -422,13 +393,7 @@ margin_top = 514.687
 margin_right = 1513.74
 margin_bottom = 814.687
 CardName = "Priest-O-Gone2"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
+nextCard1 = NodePath("../CardDev04")
 
 [node name="CardDev03" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1209.32
@@ -436,13 +401,6 @@ margin_top = 903.924
 margin_right = 1509.32
 margin_bottom = 1203.92
 CardName = "Priest-O-Gone3"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
 
 [node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1579.48
@@ -451,135 +409,21 @@ margin_right = 1879.48
 margin_bottom = 752.116
 CardName = "Sahinaa"
 CardDesc = "Yeet"
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
-
-[node name="MapView" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
-visible = false
-margin_left = 1211.0
-margin_right = 2411.0
-margin_bottom = 990.0
-rect_min_size = Vector2( 1000, 0 )
-script = ExtResource( 2 )
-
-[node name="MapLabel" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
-margin_right = 1200.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 500, 0 )
-text = "Upgrademap"
-
-[node name="HScrollBar2" type="HScrollBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
-margin_top = 18.0
-margin_right = 1200.0
-margin_bottom = 30.0
-mouse_default_cursor_shape = 15
-max_value = 200.0
-
-[node name="Panel" type="Panel" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
-margin_top = 34.0
-margin_right = 1200.0
-margin_bottom = 974.0
-rect_min_size = Vector2( 1200, 800 )
-rect_clip_content = true
-size_flags_vertical = 3
-
-[node name="Helper" type="Control" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper"]
-self_modulate = Color( 0.380392, 0.380392, 0.380392, 1 )
-margin_right = 2273.0
-margin_bottom = 1000.0
-texture = ExtResource( 3 )
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CardDev01" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
-margin_left = 141.024
-margin_top = 296.348
-margin_right = 441.024
-margin_bottom = 596.348
-CardName = "Priest-O-Gone"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = true
-needsPreviusBought = false
-nextCard1 = NodePath("../CardDev02")
-nextCard2 = NodePath("../CardDev03")
-
-[node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
-margin_left = 726.541
-margin_top = 113.891
-margin_right = 1026.54
-margin_bottom = 413.891
-CardName = "Priest-O-Gone2"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("../CardDev04")
-nextCard2 = NodePath("")
-
-[node name="CardDev03" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
-margin_left = 737.22
-margin_top = 450.271
-margin_right = 1037.22
-margin_bottom = 750.271
-CardName = "Priest-O-Gone3"
-CardDesc = "Minions gain the ability to conjure ship priests."
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
-
-[node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper" instance=ExtResource( 4 )]
-margin_left = 1124.37
-margin_top = 21.1164
-margin_right = 1424.37
-margin_bottom = 321.116
-CardName = "Sahinaa"
-CardDesc = "Yeet"
-CardPrice = 300
-CPrice_currency = "$"
-bought = false
-needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
-
-[node name="HScrollBar" type="HScrollBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/MapView"]
-margin_top = 978.0
-margin_right = 1200.0
-margin_bottom = 990.0
-mouse_default_cursor_shape = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
 margin_left = 1396.0
-margin_right = 2411.0
+margin_right = 1912.0
 margin_bottom = 990.0
 rect_min_size = Vector2( 272, 0 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
-margin_right = 1015.0
+margin_right = 516.0
 margin_bottom = 14.0
 text = "Minion"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 1015.0
+margin_right = 516.0
 margin_bottom = 518.0
 texture = SubResource( 6 )
 
@@ -594,7 +438,7 @@ margin_bottom = -4.0
 
 [node name="HUD" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 1030.0
-margin_right = 2419.0
+margin_right = 1920.0
 margin_bottom = 1070.0
 
 [node name="Money" type="Label" parent="VBoxContainer/HUD"]
@@ -618,7 +462,3 @@ texture = SubResource( 2 )
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Load" to="VBoxContainer/Main/Title/TitleSubControl" method="_on_Load_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer" method="_on_TextureRect_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer" method="_on_TextureRect_mouse_exited"]
-[connection signal="mouse_entered" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_Panel_mouse_exited"]
-[connection signal="mouse_entered" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Main/Upgrade/HSplitContainer/MapView/Panel/Helper/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/MapView" method="_on_TextureRect_mouse_exited"]
