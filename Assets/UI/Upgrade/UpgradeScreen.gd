@@ -13,6 +13,7 @@ var firstBoot = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Curtain.hide()
+	GameData.isGameOn = false
 
 onready var hud_money = $VBoxContainer/HUD/Money
 
@@ -32,6 +33,8 @@ func _process(_delta):
 	if mainCont.current_tab == 2 and firstBoot:
 		$Animations/Transitions.play("FirstBoot")
 		firstBoot = false
+	GameData.isGameOn = (mainCont.current_tab == 2)
+	
 	mainCont.current_tab = min(3, mainCont.current_tab)
 	mainCont.current_tab = max(1, mainCont.current_tab)
 	mainCont.rect_size = (get_viewport().size * Vector2(1, .95))

@@ -10,6 +10,7 @@ enum CellType { EMPTY = -1, ShipSmall, ShipMedium, ShipBig }
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in get_children():
+		GameData.ships.append(child)
 		set_cellv(world_to_map(child.position), child.type)
 #		child.position = map_to_world(world_to_map(child.position)) + Vector2(32, 32)
 

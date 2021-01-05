@@ -22,7 +22,8 @@ func _process(_delta):
 	$Cursor.set_cellv(t, 0)
 	last = t
 	if Input.is_action_just_pressed("ui_grab"):
-		print(v)
-		print(view)
-		print(t)
-		print()
+		pass
+#		print(v)
+#		print(view)
+#		print(t)
+#		print()

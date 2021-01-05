@@ -12,6 +12,11 @@ func _ready():
 	
 var touchCount = 0
 var touchJustNow = false
+
+func global_mouse_pos():
+	return GlobalScreen.get_global_mouse_position() + mouseOffset
+func mouse_pos():
+	return GlobalScreen.get_global_mouse_position()
 func touch():
 	return touchCount > 0
 func touchNow():
