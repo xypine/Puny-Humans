@@ -11,6 +11,7 @@ onready var healthbar = $Health
 export(float) var maxMen = 20.0
 export(float) var men = 20.0
 export(float) var priestPercent = 10
+export(int) var value = 75
 var priests = (men*0.01)*priestPercent
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +25,7 @@ func _process(delta):
 	if men < 1:
 		var ind = GameData.ships.find(self)
 		GameData.ships.remove(ind)
+		GameData.money += value
 		$AnimationPlayer.play("Die")
 		attacker.gotKill(self)
 func do_move(input_direction):
