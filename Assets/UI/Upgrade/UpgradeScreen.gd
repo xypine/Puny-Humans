@@ -22,7 +22,8 @@ func updateHUD():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$VBoxContainer/Main/Title/Control/FScreenWarn.visible = not OS.is_window_fullscreen()
+	$VBoxContainer/Main/Title/TitleSubControl/FScreenWarn.visible = not OS.is_window_fullscreen()
+	$VBoxContainer/Main/Title/TitleSubControl/FsystemWarn.visible = not OS.is_userfs_persistent()
 	updateHUD()
 	if Input.is_action_just_pressed("tab_next"):
 		mainCont.current_tab += 1
