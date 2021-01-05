@@ -64,6 +64,8 @@ func _input(event):
 #				print(scrollbar.value)
 var mouseOver = false
 
+
+
 func _on_Panel_mouse_entered():
 	mouseOver = true
 	print(mouseOver)
