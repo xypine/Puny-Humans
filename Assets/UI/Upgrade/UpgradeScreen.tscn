@@ -378,7 +378,6 @@ rect_min_size = Vector2( 1199.38, 0 )
 follow_focus = true
 scroll_horizontal = 333
 scroll_vertical = 333
-scroll_deadzone = 10000
 script = ExtResource( 15 )
 
 [node name="Helper2" type="Control" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer"]
