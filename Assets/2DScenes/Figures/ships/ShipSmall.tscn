@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 1.0, 1.75, 1.0 ]
+"values": [ 0.75, 1.5, 0.75 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 1.0, 0.0 ]
+"values": [ 0.75, 0.0 ]
 }
 
 [node name="ShipSmall" type="Node2D"]
@@ -63,6 +63,7 @@ __meta__ = {
 texture = ExtResource( 1 )
 texture_scale = 0.45
 color = Color( 0.960784, 0.854902, 0.529412, 1 )
+energy = 0.75
 range_height = 22.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

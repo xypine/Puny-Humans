@@ -4,6 +4,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var basePos = Vector2(0,0)
+
 var target = Vector2(0, 0)
 export(float) var speed = 1.3
 var isOnTarget = false
@@ -34,14 +36,15 @@ func _process(delta):
 		
 		var direction = target - global_position
 		var vec = direction.normalized()
-		var localspeed = (vec*speed + direction*0.01)
+		var localspeed = (vec*(speed*GameData.BuffSpeed) + direction*0.01)
 		global_position += localspeed
-	var target = get_target()
+	var targetv = get_target()
 	var notarget = false
-	if str(target) != "":
-		var dist = global_position.distance_to(target.global_position)
-		if charged and dist < radius:
-			attack(target)
+	if str(targetv) != "":
+		var dist = global_position.distance_to(targetv.global_position)
+		if charged and dist < (radius * GameData.BuffRange):
+			target = targetv.global_position
+			attack(targetv)
 		else:
 			notarget = true
 	else:
@@ -63,12 +66,11 @@ func attack(targetv):
 	$AnimationPlayer.play("Attack")
 	randomize()
 	var rnd = rand_range(0, 101)
-	if rnd < damage:
+	if rnd < (damage + damage * GameData.BuffAttack):
 		targetv.attacker = self
 		targetv.men -= 1
 func gotKill(targetv):
-#	idle = true
-	pass
+	target = basePos
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Attack":

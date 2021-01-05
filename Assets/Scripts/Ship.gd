@@ -20,9 +20,13 @@ func _ready():
 	healthbar.max_value = maxMen
 	healthbar.value = men
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var dead = false
 func _process(delta):
+	if dead:
+		return
 	healthbar.value = men
 	if men < 1:
+		dead = true
 		var ind = GameData.ships.find(self)
 		GameData.ships.remove(ind)
 		GameData.money += value

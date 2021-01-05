@@ -9,6 +9,10 @@ var isGameOn = true
 var money = 300
 
 var ships = []
+var BuffSpeed = 1
+var BuffAttack= 0
+var BuffPriests=0
+var BuffRange = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

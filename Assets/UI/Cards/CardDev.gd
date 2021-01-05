@@ -16,6 +16,11 @@ export(bool) var needsPreviusBought = true
 export(NodePath) var nextCard1
 export(NodePath) var nextCard2
 
+export(float) var BuffSpeed = 0
+export(float) var BuffAttack= 0
+export(float) var BuffPriests=0
+export(float) var BuffRange = 0
+
 onready var l_cardName = $VBoxContainer/Card_Name
 onready var l_cardDesc = $VBoxContainer/Stats
 onready var l_cardPrice = $VBoxContainer/PriceContainer/Price
@@ -26,7 +31,7 @@ onready var line2 = $RelationshipLines/Line2
 onready var receivingPos = $Receiving
 onready var leavingPos = $RelationshipLines
 
-var stop = false
+var stop = true
 var unlocked = true
 var previus = ""
 # Called when the node enters the scene tree for the first time.
