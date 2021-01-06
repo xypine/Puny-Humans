@@ -15,6 +15,7 @@ export(bool) var needsPreviusBought = true
 
 export(NodePath) var nextCard1
 export(NodePath) var nextCard2
+export(NodePath) var nextCard3
 
 export(float) var BuffSpeed = 0
 export(float) var BuffAttack= 0
@@ -28,10 +29,11 @@ onready var btn_buy = $VBoxContainer/PriceContainer/Button
 
 onready var line1 = $RelationshipLines/Line1
 onready var line2 = $RelationshipLines/Line2
+onready var line3 = $RelationshipLines/Line3
 onready var receivingPos = $Receiving
 onready var leavingPos = $RelationshipLines
 
-var stop = false
+var stop = true
 var unlocked = true
 var previus = ""
 # Called when the node enters the scene tree for the first time.
@@ -76,6 +78,16 @@ func updateLinePoints():
 		line2.points = [p1, p2]
 	else:
 		line2.points = []
+	var next3 = nextValid(nextCard3)
+	if next3 and "receivingPos" in next3:
+		next3.previus = self
+		yield(next3, "ready")
+		var p1 = Vector2(0, 0)
+		var p2 = next3.receivingPos.global_position
+		p2 = leavingPos.to_local(p2)
+		line3.points = [p1, p2]
+	else:
+		line3.points = []
 func updateUnlocked():
 	if str(previus) != "" and is_instance_valid(previus):
 		if previus.bought and (Engine.editor_hint or ((not Engine.editor_hint) and GameData.money >= CardPrice)):

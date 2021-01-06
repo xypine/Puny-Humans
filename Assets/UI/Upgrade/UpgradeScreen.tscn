@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Upgrade/Stat_Speed.gd" type="Script" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Assets/UI/Upgrade/HBoxContainer.gd" type="Script" id=13]
 [ext_resource path="res://Assets/UI/Upgrade/HBoxContainer2.gd" type="Script" id=14]
 [ext_resource path="res://Assets/UI/Upgrade/ScrollContainer.gd" type="Script" id=15]
+[ext_resource path="res://Assets/UI/Upgrade/Stat_Range.gd" type="Script" id=16]
+[ext_resource path="res://Assets/UI/Upgrade/Stat_Attack.gd" type="Script" id=17]
+[ext_resource path="res://Assets/UI/Upgrade/Stat_Priests.gd" type="Script" id=18]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -42,7 +45,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Money+"
 length = 1.5
 tracks/0/type = "value"
@@ -58,25 +61,25 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 1, 0, 1 ), Color( 0.709804, 0.905882, 0.215686, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 70
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 outline_size = 1
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="NoiseTexture" id=5]
+[sub_resource type="NoiseTexture" id=6]
 width = 500
 height = 500
 
-[sub_resource type="NoiseTexture" id=6]
+[sub_resource type="NoiseTexture" id=7]
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -98,7 +101,7 @@ playback_speed = 64.0
 anims/FirstBoot = SubResource( 1 )
 
 [node name="Money" type="AnimationPlayer" parent="Animations"]
-anims/Money+ = SubResource( 7 )
+anims/Money+ = SubResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1920.0
@@ -144,7 +147,7 @@ margin_left = -4.0
 margin_top = 294.081
 margin_right = 1916.0
 margin_bottom = 377.081
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Puny Humans"
 align = 1
 __meta__ = {
@@ -156,7 +159,7 @@ margin_left = -4.0
 margin_top = 377.081
 margin_right = 1916.0
 margin_bottom = 430.081
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Press [E] to play"
 align = 1
 __meta__ = {
@@ -168,7 +171,7 @@ margin_left = 6.0
 margin_top = 1.0
 margin_right = 1912.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Please toggle fullscreen!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -179,7 +182,7 @@ margin_left = 5.12
 margin_top = 46.2548
 margin_right = 1911.12
 margin_bottom = 166.255
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Please allow cookies in order to enable saving."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -396,10 +399,10 @@ __meta__ = {
 }
 
 [node name="CardDev01" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 318.405
-margin_top = 351.974
-margin_right = 618.405
-margin_bottom = 651.974
+margin_left = 531.165
+margin_top = 566.974
+margin_right = 831.165
+margin_bottom = 866.974
 CardName = "Your Journey Starts Here"
 CardDesc = "Buy upgrades to better your minions."
 CardPrice = 0
@@ -408,35 +411,44 @@ needsPreviusBought = false
 nextCard1 = NodePath("../CardDev02")
 
 [node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 758.172
-margin_top = 353.843
-margin_right = 1058.17
-margin_bottom = 653.843
+margin_left = 970.932
+margin_top = 568.843
+margin_right = 1270.93
+margin_bottom = 868.843
 CardName = "Speed I"
 CardDesc = "Minion speed increased by 20%"
 nextCard1 = NodePath("../CardDev04")
 nextCard2 = NodePath("../CardDev05")
+nextCard3 = NodePath("../CardDev06")
 BuffSpeed = 0.2
 
 [node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1210.79
-margin_top = 166.255
-margin_right = 1510.79
-margin_bottom = 466.255
+margin_left = 1423.55
+margin_top = 209.88
+margin_right = 1723.55
+margin_bottom = 509.88
 CardName = "Speed II"
 CardDesc = "Minion speed inreased by another 20%"
 BuffSpeed = 0.2
 
 [node name="CardDev05" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1210.79
-margin_top = 524.503
-margin_right = 1510.79
-margin_bottom = 824.503
-CardDesc = "Each minion gains the ability to conjure one priest per ship."
-BuffSpeed = 0.2
+margin_left = 1423.55
+margin_top = 566.974
+margin_right = 1723.55
+margin_bottom = 866.974
+CardDesc = "Each minion gains the chance to conjure one priest per ship to become a new minion."
+BuffPriests = 1.0
+
+[node name="CardDev06" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 1423.55
+margin_top = 927.151
+margin_right = 1723.55
+margin_bottom = 1227.15
+CardName = "Attack 1"
+CardDesc = "Minion hit-chance increased by 10%"
+BuffAttack = 0.1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 1396.0
 margin_right = 1912.0
 margin_bottom = 990.0
@@ -451,7 +463,7 @@ text = "Minion"
 margin_top = 18.0
 margin_right = 516.0
 margin_bottom = 518.0
-texture = SubResource( 5 )
+texture = SubResource( 6 )
 
 [node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
 margin_top = 522.0
@@ -500,6 +512,93 @@ rect_min_size = Vector2( 20, 0 )
 text = "0"
 align = 1
 
+[node name="Stat_Range" type="HBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+margin_top = 574.0
+margin_right = 516.0
+margin_bottom = 588.0
+script = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Range"]
+margin_right = 38.0
+margin_bottom = 14.0
+text = "Range"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Range"]
+margin_left = 42.0
+margin_right = 492.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 300, 14 )
+size_flags_horizontal = 11
+max_value = 10.0
+value = 1.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Range"]
+margin_left = 496.0
+margin_right = 516.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+text = "0"
+align = 1
+
+[node name="Stat_Attack" type="HBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+margin_top = 592.0
+margin_right = 516.0
+margin_bottom = 606.0
+script = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Attack"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Attack"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Attack"]
+margin_left = 44.0
+margin_right = 492.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 300, 14 )
+size_flags_horizontal = 11
+max_value = 10.0
+value = 1.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Attack"]
+margin_left = 496.0
+margin_right = 516.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+text = "0"
+align = 1
+
+[node name="Stat_Priests" type="HBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+margin_top = 610.0
+margin_right = 516.0
+margin_bottom = 624.0
+script = ExtResource( 18 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Priests"]
+margin_right = 144.0
+margin_bottom = 14.0
+text = "Priests able to conjure"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Priests"]
+margin_left = 148.0
+margin_right = 492.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 300, 14 )
+size_flags_horizontal = 11
+max_value = 6.0
+value = 1.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Priests"]
+margin_left = 496.0
+margin_right = 516.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+text = "0"
+align = 1
+
 [node name="[E]" type="MarginContainer" parent="VBoxContainer/Main"]
 visible = false
 anchor_right = 1.0
@@ -529,7 +628,7 @@ __meta__ = {
 visible = false
 position = Vector2( 969.094, 555.293 )
 scale = Vector2( 4.07639, 2.48084 )
-texture = SubResource( 6 )
+texture = SubResource( 7 )
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer/Button" to="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2/Button" to="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Save" to="VBoxContainer/Main/Title/TitleSubControl" method="_on_Save_pressed"]

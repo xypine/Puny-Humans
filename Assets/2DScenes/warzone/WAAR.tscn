@@ -85,6 +85,60 @@ maxMen = 10.0
 men = 10.0
 value = 300
 
+[node name="ShipSmall2" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 385.686, 16.2254 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall3" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 489.002, 16.2254 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall4" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 557.88, 16.2254 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall5" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 212.216, 16.2254 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall6" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 112.726, 16.2254 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall7" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 36.1958, 16.2254 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall8" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 73.653, 63.4193 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall9" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 169.316, 63.4193 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
+[node name="ShipSmall10" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 266.596, 63.4193 )
+maxMen = 10.0
+men = 10.0
+value = 300
+
 [node name="Cursor" type="TileMap" parent="."]
 light_mask = 524289
 scale = Vector2( 3.136, 3.136 )

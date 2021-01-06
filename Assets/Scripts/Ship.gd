@@ -29,6 +29,11 @@ func _process(delta):
 	if str(attacker) != "" and frame % 100 == 0:
 		var dir = evade()
 		do_move(dir)
+	if str(attacker) != "" and frame % 90 == 0:
+		randomize()
+		var chance = (randi() % 2 == 0)
+		if chance:
+			attack(attacker)
 	if frame % 200 == 0:
 		do_move(Vector2(0, 1))
 	if men < 1:
@@ -39,6 +44,9 @@ func _process(delta):
 		$AnimationPlayer.play("Die")
 		attacker.gotKill(self)
 	frame += 1
+func attack(attackr):
+	$AnimationPlayer.play("Attack")
+	attackr.health -= 10
 func do_move(input_direction):
 	var target_position = Grid.request_move(self, input_direction)
 	if target_position:

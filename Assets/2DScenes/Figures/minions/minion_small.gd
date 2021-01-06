@@ -11,6 +11,8 @@ export(float) var speed = 1.3
 var isOnTarget = false
 var idle = true
 
+var health = 100
+
 var damage = 50
 var radius = 100
 
@@ -27,6 +29,7 @@ func toInt(vec):
 	return Vector2(int(floor(vec.x*.5))*2, int(floor(vec.y*.5))*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$Arm/Light2D.energy = (0.45/100)*health
 	isOnTarget = (global_position.distance_to(target) < 2 )
 	if isOnTarget:
 #		$Light2D.energy = .45
@@ -67,7 +70,7 @@ func attack(targetv):
 	$AnimationPlayer.play("Attack")
 	randomize()
 	var rnd = rand_range(0, 101)
-	if rnd < (damage + damage * GameData.BuffAttack):
+	if rnd < (damage + (damage * GameData.BuffAttack)):
 		targetv.attacker = self
 		targetv.men -= 1
 func gotKill(targetv):
