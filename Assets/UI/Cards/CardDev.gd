@@ -31,7 +31,7 @@ onready var line2 = $RelationshipLines/Line2
 onready var receivingPos = $Receiving
 onready var leavingPos = $RelationshipLines
 
-var stop = true
+var stop = false
 var unlocked = true
 var previus = ""
 # Called when the node enters the scene tree for the first time.
@@ -113,6 +113,10 @@ func _on_Button_pressed():
 	if unlocked and GameData.money >= CardPrice:
 		GameData.money -= CardPrice
 		bought = true
+		GameData.BuffAttack += BuffAttack
+		GameData.BuffPriests += BuffPriests
+		GameData.BuffRange += BuffRange
+		GameData.BuffSpeed += BuffSpeed
 		updateUnlocked()
 		updateInfo()
 		updateLinePoints()

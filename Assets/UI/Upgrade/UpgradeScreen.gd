@@ -17,10 +17,13 @@ func _ready():
 
 onready var hud_money = $VBoxContainer/HUD/Money
 
+var lastMoney = GameData.money
 func updateHUD():
+	if lastMoney != GameData.money:
+		$Animations/Money.play("Money+")
+	lastMoney = GameData.money
 	hud_money.text = str(GameData.money) + "$"
 	hud_money.margin_left = 8
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$VBoxContainer/Main/Title/TitleSubControl/FScreenWarn.visible = not OS.is_window_fullscreen()

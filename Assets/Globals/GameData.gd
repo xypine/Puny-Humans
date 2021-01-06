@@ -6,7 +6,7 @@ extends Node
 # var b = "text"
 var isGameOn = true
 
-var money = 300
+var money = 0
 
 var ships = []
 var BuffSpeed = 1

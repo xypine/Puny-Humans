@@ -66,6 +66,13 @@ energy = 0.3
 range_height = 111.3
 shadow_enabled = true
 
+[node name="CursorLight" type="Light2D" parent="Lights"]
+texture = ExtResource( 2 )
+texture_scale = 23.58
+energy = 0.43
+range_height = 2048.0
+range_item_cull_mask = 524288
+
 [node name="ShipGrid" type="TileMap" parent="."]
 scale = Vector2( 3.136, 3.136 )
 cell_size = Vector2( 32, 32 )
@@ -73,7 +80,7 @@ format = 1
 script = ExtResource( 6 )
 
 [node name="ShipSmall" parent="ShipGrid" instance=ExtResource( 5 )]
-position = Vector2( 239.997, 112.003 )
+position = Vector2( 304.053, 16.2254 )
 maxMen = 10.0
 men = 10.0
 value = 300
@@ -85,13 +92,6 @@ tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 131076, 1, 0 )
-
-[node name="CursorLight" type="Light2D" parent="."]
-texture = ExtResource( 2 )
-texture_scale = 23.58
-energy = 0.43
-range_height = 2048.0
-range_item_cull_mask = 524288
 
 [node name="Minions" type="Node2D" parent="."]
 position = Vector2( 960, 950 )

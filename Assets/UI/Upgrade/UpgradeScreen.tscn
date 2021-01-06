@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/UI/Upgrade/Stat_Speed.gd" type="Script" id=2]
 [ext_resource path="res://Assets/textures/grid/simpleGrid.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/Cards/CardDev.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/meta/banner/untitled.png" type="Texture" id=5]
@@ -41,25 +42,41 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="Animation" id=7]
+resource_name = "Money+"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../VBoxContainer/HUD/Money:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 1, 0, 1 ), Color( 0.709804, 0.905882, 0.215686, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
 size = 70
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 outline_size = 1
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="NoiseTexture" id=6]
+[sub_resource type="NoiseTexture" id=5]
 width = 500
 height = 500
 
-[sub_resource type="NoiseTexture" id=2]
+[sub_resource type="NoiseTexture" id=6]
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -80,6 +97,9 @@ __meta__ = {
 playback_speed = 64.0
 anims/FirstBoot = SubResource( 1 )
 
+[node name="Money" type="AnimationPlayer" parent="Animations"]
+anims/Money+ = SubResource( 7 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -97,6 +117,7 @@ __meta__ = {
 }
 
 [node name="[Q]" type="MarginContainer" parent="VBoxContainer/Main"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -123,7 +144,7 @@ margin_left = -4.0
 margin_top = 294.081
 margin_right = 1916.0
 margin_bottom = 377.081
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Puny Humans"
 align = 1
 __meta__ = {
@@ -135,7 +156,7 @@ margin_left = -4.0
 margin_top = 377.081
 margin_right = 1916.0
 margin_bottom = 430.081
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Press [E] to play"
 align = 1
 __meta__ = {
@@ -147,7 +168,7 @@ margin_left = 6.0
 margin_top = 1.0
 margin_right = 1912.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Please toggle fullscreen!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -158,7 +179,7 @@ margin_left = 5.12
 margin_top = 46.2548
 margin_right = 1911.12
 margin_bottom = 166.255
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Please allow cookies in order to enable saving."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -325,7 +346,6 @@ render_target_update_mode = 0
 position = Vector2( 0, 32 )
 
 [node name="Upgrade" type="MarginContainer" parent="VBoxContainer/Main"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -376,39 +396,47 @@ __meta__ = {
 }
 
 [node name="CardDev01" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 737.004
-margin_top = 683.655
-margin_right = 1037.0
-margin_bottom = 983.655
+margin_left = 318.405
+margin_top = 351.974
+margin_right = 618.405
+margin_bottom = 651.974
+CardName = "Your Journey Starts Here"
+CardDesc = "Buy upgrades to better your minions."
+CardPrice = 0
 bought = true
 needsPreviusBought = false
 nextCard1 = NodePath("../CardDev02")
-nextCard2 = NodePath("../CardDev03")
 
 [node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1213.74
-margin_top = 514.687
-margin_right = 1513.74
-margin_bottom = 814.687
-CardName = "Priest-O-Gone2"
+margin_left = 758.172
+margin_top = 353.843
+margin_right = 1058.17
+margin_bottom = 653.843
+CardName = "Speed I"
+CardDesc = "Minion speed increased by 20%"
 nextCard1 = NodePath("../CardDev04")
-
-[node name="CardDev03" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1209.32
-margin_top = 903.924
-margin_right = 1509.32
-margin_bottom = 1203.92
-CardName = "Priest-O-Gone3"
+nextCard2 = NodePath("../CardDev05")
+BuffSpeed = 0.2
 
 [node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1579.48
-margin_top = 452.116
-margin_right = 1879.48
-margin_bottom = 752.116
-CardName = "Sahinaa"
-CardDesc = "Yeet"
+margin_left = 1210.79
+margin_top = 166.255
+margin_right = 1510.79
+margin_bottom = 466.255
+CardName = "Speed II"
+CardDesc = "Minion speed inreased by another 20%"
+BuffSpeed = 0.2
+
+[node name="CardDev05" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 1210.79
+margin_top = 524.503
+margin_right = 1510.79
+margin_bottom = 824.503
+CardDesc = "Each minion gains the ability to conjure one priest per ship."
+BuffSpeed = 0.2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 1396.0
 margin_right = 1912.0
 margin_bottom = 990.0
@@ -423,7 +451,54 @@ text = "Minion"
 margin_top = 18.0
 margin_right = 516.0
 margin_bottom = 518.0
-texture = SubResource( 6 )
+texture = SubResource( 5 )
+
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+margin_top = 522.0
+margin_right = 516.0
+margin_bottom = 536.0
+text = "Buffs:"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.631373 )
+margin_top = 540.0
+margin_right = 516.0
+margin_bottom = 544.0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 548.0
+margin_right = 516.0
+margin_bottom = 552.0
+
+[node name="Stat_Speed" type="HBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
+margin_top = 556.0
+margin_right = 516.0
+margin_bottom = 570.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Speed"]
+margin_right = 39.0
+margin_bottom = 14.0
+text = "Speed"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Speed"]
+margin_left = 43.0
+margin_right = 492.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 300, 14 )
+size_flags_horizontal = 11
+max_value = 10.0
+value = 1.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer/Stat_Speed"]
+margin_left = 496.0
+margin_right = 516.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+text = "0"
+align = 1
 
 [node name="[E]" type="MarginContainer" parent="VBoxContainer/Main"]
 visible = false
@@ -444,6 +519,7 @@ margin_right = 100.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 100, 0 )
 custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0$"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -453,7 +529,7 @@ __meta__ = {
 visible = false
 position = Vector2( 969.094, 555.293 )
 scale = Vector2( 4.07639, 2.48084 )
-texture = SubResource( 2 )
+texture = SubResource( 6 )
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer/Button" to="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2/Button" to="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Save" to="VBoxContainer/Main/Title/TitleSubControl" method="_on_Save_pressed"]

@@ -36,14 +36,15 @@ func _process(delta):
 		
 		var direction = target - global_position
 		var vec = direction.normalized()
-		var localspeed = (vec*(speed*GameData.BuffSpeed) + direction*0.01)
+		var localspeed = (vec*(speed) + direction*0.01)*GameData.BuffSpeed
 		global_position += localspeed
 	var targetv = get_target()
 	var notarget = false
 	if str(targetv) != "":
 		var dist = global_position.distance_to(targetv.global_position)
-		if charged and dist < (radius * GameData.BuffRange):
+		if dist < (radius*1.6*GameData.BuffRange):
 			target = targetv.global_position
+		if charged and dist < (radius * GameData.BuffRange):
 			attack(targetv)
 		else:
 			notarget = true
