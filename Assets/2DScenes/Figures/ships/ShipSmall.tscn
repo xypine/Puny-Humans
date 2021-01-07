@@ -21,7 +21,7 @@ noise = SubResource( 1 )
 [sub_resource type="Animation" id=3]
 resource_name = "Attack"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
+tracks/0/path = NodePath("Textures/Light2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,14 +30,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.75, 1.5, 0.75 ]
+"values": [ 0.75, 1.1, 0.75 ]
 }
 
 [sub_resource type="Animation" id=4]
 resource_name = "Die"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:energy")
+tracks/0/path = NodePath("Textures/Light2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "values": [ 0.75, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "-10"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Textures:position")
@@ -64,7 +64,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -32, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=6]
 resource_name = "-11"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Textures:position")
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -32, 32 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "0-1"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Textures:position")
@@ -94,7 +94,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -32 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "00"
 length = 0.1
 tracks/0/type = "value"
@@ -110,8 +110,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "01"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Textures:position")
 tracks/0/interp = 1
@@ -125,8 +124,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 32 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "10"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Textures:position")
 tracks/0/interp = 1
@@ -140,8 +138,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 32, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "11"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Textures:position")
 tracks/0/interp = 1
@@ -160,50 +157,48 @@ script = ExtResource( 2 )
 
 [node name="Textures" type="Node2D" parent="."]
 
-[node name="F0" type="Sprite" parent="Textures"]
+[node name="T" type="Node2D" parent="Textures"]
+
+[node name="F0" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="F1" type="Sprite" parent="Textures"]
+[node name="F1" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="F2" type="Sprite" parent="Textures"]
+[node name="F2" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
-[node name="F3" type="Sprite" parent="Textures"]
+[node name="F3" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
-[node name="F4" type="Sprite" parent="Textures"]
+[node name="F4" type="Sprite" parent="Textures/T"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
-[node name="F5" type="Sprite" parent="Textures"]
+[node name="F5" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
-[node name="F6" type="Sprite" parent="Textures"]
+[node name="F6" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="F7" type="Sprite" parent="Textures"]
+[node name="F7" type="Sprite" parent="Textures/T"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-texture = SubResource( 2 )
-
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="Textures"]
 margin_left = -13.4266
 margin_top = 13.1254
 margin_right = 12.5734
@@ -215,23 +210,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light2D" type="Light2D" parent="Textures"]
 texture = ExtResource( 1 )
 texture_scale = 0.45
 color = Color( 0.960784, 0.854902, 0.529412, 1 )
 energy = 0.75
 range_height = 30.0
 
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = SubResource( 2 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 3 )
 anims/Die = SubResource( 4 )
 
 [node name="Move" type="AnimationPlayer" parent="."]
-anims/-10 = SubResource( 7 )
-anims/-11 = SubResource( 10 )
-anims/0-1 = SubResource( 8 )
-anims/00 = SubResource( 11 )
-anims/01 = SubResource( 6 )
-anims/10 = SubResource( 5 )
-anims/11 = SubResource( 9 )
+playback_speed = 0.5
+anims/-10 = SubResource( 5 )
+anims/-11 = SubResource( 6 )
+anims/0-1 = SubResource( 7 )
+anims/00 = SubResource( 8 )
+anims/01 = SubResource( 9 )
+anims/10 = SubResource( 10 )
+anims/11 = SubResource( 11 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -14,6 +14,7 @@ var firstBoot = true
 func _ready():
 	$Curtain.hide()
 	GameData.isGameOn = false
+	mainCont.current_tab = 2
 
 onready var hud_money = $VBoxContainer/HUD/Money
 
@@ -26,8 +27,8 @@ func updateHUD():
 	hud_money.margin_left = 8
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$VBoxContainer/Main/Title/TitleSubControl/FScreenWarn.visible = not OS.is_window_fullscreen()
-	$VBoxContainer/Main/Title/TitleSubControl/FsystemWarn.visible = not OS.is_userfs_persistent()
+	$VBoxContainer/Main/Settings/TitleSubControl/FScreenWarn.visible = not OS.is_window_fullscreen()
+	$VBoxContainer/Main/Settings/TitleSubControl/FsystemWarn.visible = not OS.is_userfs_persistent()
 	updateHUD()
 	if Input.is_action_just_pressed("tab_next"):
 		mainCont.current_tab += 1

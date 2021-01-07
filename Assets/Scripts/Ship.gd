@@ -4,7 +4,8 @@ export(CellType) var type = CellType.ShipSmall
 
 onready var Grid = get_parent()
 
-onready var healthbar = $Health
+onready var healthbar = $Textures/Health
+onready var light = $Textures/Light2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,17 +16,22 @@ export(int) var value = 75
 var priests = (men*0.01)*priestPercent
 var textures = []
 
+var targetPos = Vector2(0, 0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	priests = (men*0.01)*priestPercent
+	print(priests)
 	healthbar.max_value = maxMen
 	healthbar.value = men
-	for i in $Textures.get_children():
-		textures.append(i)
+	for i in $Textures/T/.get_children():
+		if not (i in [healthbar, light]):
+			textures.append(i)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var dead = false
 var frame = 0
 func _process(delta):
+	targetPos = global_position + $Textures.position
 	if dead:
 		return
 	healthbar.value = men
@@ -57,11 +63,11 @@ func attack(attackr):
 func do_move(input_direction):
 	var target_position = Grid.request_move(self, input_direction)
 	if target_position:
-		move_to(target_position)
+		move_to(target_position, input_direction)
 	else:
 		pass
 		#bump()
-func move_to(target_position):
+func move_to(target_position, dir):
 	set_process(false)
 #	$AnimationPlayer.play("walk")
 
@@ -69,7 +75,12 @@ func move_to(target_position):
 	# and animate the sprite moving from the start to the target cell
 	var move_direction = (target_position - position).normalized()
 #	$Tween.interpolate_property($Pivot, "position", - move_direction * 32, Vector2(), $AnimationPlayer.current_animation_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	play_move(dir)
+	yield($Move, "animation_finished")
+	$Textures/T.modulate = Color(1,1,1,0.5)
 	position = target_position
+	$Textures.position = Vector2(0, 0)
+	$Textures/T.modulate = Color(1,1,1,1)
 
 #	$Tween.start()
 
@@ -81,26 +92,34 @@ func play_move(dir):
 	match str(dir.x) + "," + str(dir.y):
 		"0,1":
 			$Move.play("01")
+		"1,1":
+			$Move.play("11")
+		"-1,1":
+			$Move.play("-11")
+		"1,0":
+			$Move.play("10")
+		"-1,0":
+			$Move.play("-10")
 func update_look_direction(direction):
 	for i in textures:
 		i.visible = false
 	match str(direction.angle()):
 		"1.570796":
-			$Textures/F2.visible = true
+			$Textures/T/F2.visible = true
 		"0.785398":
-			$Textures/F3.visible = true
+			$Textures/T/F3.visible = true
 		"0":
-			$Textures/F4.visible = true
+			$Textures/T/F4.visible = true
 		"-0.785398":
-			$Textures/F5.visible = true
+			$Textures/T/F5.visible = true
 		"-1.570796":
-			$Textures/F6.visible = true
+			$Textures/T/F6.visible = true
 		"-2.356194":
-			$Textures/F7.visible = true
+			$Textures/T/F7.visible = true
 		"3.141593":
-			$Textures/F0.visible = true
+			$Textures/T/F0.visible = true
 		"2.356194":
-			$Textures/F1.visible = true
+			$Textures/T/F1.visible = true
 
 var attacker = ""
 

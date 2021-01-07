@@ -29,6 +29,9 @@ func toInt(vec):
 	return Vector2(int(floor(vec.x*.5))*2, int(floor(vec.y*.5))*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$Arm/Sprite/Node2D.rotation_degrees = -$Arm.rotation_degrees
+	$Arm/Sprite/Node2D/ProgressBar.value = health
+#	$Arm/ProgressBar.rect_rotation = - $Arm.rotation_degrees
 	$Arm/Light2D.energy = (0.45/100)*health
 	isOnTarget = (global_position.distance_to(target) < 2 )
 	if isOnTarget:
@@ -46,7 +49,7 @@ func _process(delta):
 	if str(targetv) != "":
 		var dist = global_position.distance_to(targetv.global_position)
 		if dist < (radius*1.6*GameData.BuffRange):
-			target = targetv.global_position
+			target = targetv.targetPos
 		if charged and dist < (radius * GameData.BuffRange):
 			attack(targetv)
 		else:
@@ -75,6 +78,11 @@ func attack(targetv):
 		targetv.men -= 1
 func gotKill(targetv):
 	target = basePos
+	var got = min(GameData.BuffPriests, targetv.priests)
+	var pre = load("res://Assets/2DScenes/Figures/minions/minion_small.tscn")
+	for i in got:
+		var inst = pre.instance()
+		get_parent().add_child(inst)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Attack":

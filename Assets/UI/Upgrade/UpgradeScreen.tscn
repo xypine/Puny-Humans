@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/UI/Upgrade/UpgradeScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/Upgrade/Stat_Speed.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/meta/banner/untitled.png" type="Texture" id=5]
 [ext_resource path="res://Assets/2DScenes/warzone/WAAR.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Fonts/Pirata_One/PirataOne-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Assets/Fonts/Redressed/Redressed-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Fonts/Prefabs/Title.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Assets/Fonts/Prefabs/Price.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Assets/Fonts/Montserrat/Montserrat-Italic.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Assets/textures/lights/light.png" type="Texture" id=11]
@@ -62,24 +62,20 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=3]
-size = 70
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 outline_size = 1
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="NoiseTexture" id=6]
+[sub_resource type="NoiseTexture" id=5]
 width = 500
 height = 500
 
-[sub_resource type="NoiseTexture" id=7]
+[sub_resource type="NoiseTexture" id=6]
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -127,7 +123,7 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Title" type="MarginContainer" parent="VBoxContainer/Main"]
+[node name="Settings" type="MarginContainer" parent="VBoxContainer/Main"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -136,67 +132,68 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="TitleSubControl" type="Control" parent="VBoxContainer/Main/Title"]
+[node name="TitleSubControl" type="Control" parent="VBoxContainer/Main/Settings"]
 margin_right = 1912.0
 margin_bottom = 990.0
 script = ExtResource( 12 )
 
-[node name="Title" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl"]
+[node name="Title" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl"]
 margin_left = -4.0
 margin_top = 294.081
 margin_right = 1916.0
 margin_bottom = 377.081
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 8 )
 text = "Puny Humans"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl"]
+[node name="Label" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl"]
+visible = false
 margin_left = -4.0
 margin_top = 377.081
 margin_right = 1916.0
 margin_bottom = 430.081
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Press [E] to play"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FScreenWarn" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl"]
+[node name="FScreenWarn" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl"]
 margin_left = 6.0
 margin_top = 1.0
 margin_right = 1912.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Please toggle fullscreen!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FsystemWarn" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl"]
+[node name="FsystemWarn" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl"]
 margin_left = 5.12
 margin_top = 46.2548
 margin_right = 1911.12
 margin_bottom = 166.255
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Please allow cookies in order to enable saving."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InputSettings" type="Panel" parent="VBoxContainer/Main/Title/TitleSubControl"]
-margin_left = 744.22
-margin_top = 455.503
-margin_right = 1182.22
-margin_bottom = 679.503
+[node name="InputSettings" type="Panel" parent="VBoxContainer/Main/Settings/TitleSubControl"]
+margin_left = 750.22
+margin_top = 404.88
+margin_right = 1188.22
+margin_bottom = 628.88
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings"]
+[node name="Label" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings"]
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 40.0
@@ -206,13 +203,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings"]
 margin_left = 6.0
 margin_top = 20.0
 margin_right = 99.0
 margin_bottom = 24.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings"]
 margin_left = 12.0
 margin_top = 27.0
 margin_right = 429.0
@@ -221,75 +218,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer"]
 margin_right = 417.0
 margin_bottom = 14.0
 text = "Mouse X-Offset"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer"]
 margin_top = 18.0
 margin_right = 417.0
 margin_bottom = 38.0
 script = ExtResource( 13 )
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer"]
 margin_right = 350.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 350, 0 )
 min_value = -100.0
 tick_count = 20
 
-[node name="Button" type="Button" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer"]
 margin_left = 354.0
 margin_right = 371.0
 margin_bottom = 20.0
 text = "r"
 
-[node name="Label" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer"]
 margin_left = 375.0
 margin_top = 3.0
 margin_right = 383.0
 margin_bottom = 17.0
 text = "0"
 
-[node name="Label2" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer"]
 margin_top = 42.0
 margin_right = 417.0
 margin_bottom = 56.0
 text = "Mouse Y-Offset"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer"]
 margin_top = 60.0
 margin_right = 417.0
 margin_bottom = 80.0
 script = ExtResource( 14 )
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2"]
 margin_right = 350.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 350, 0 )
 min_value = -100.0
 tick_count = 20
 
-[node name="Button" type="Button" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2"]
+[node name="Button" type="Button" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2"]
 margin_left = 354.0
 margin_right = 371.0
 margin_bottom = 20.0
 text = "r"
 
-[node name="Label" type="Label" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2"]
 margin_left = 375.0
 margin_top = 3.0
 margin_right = 383.0
 margin_bottom = 17.0
 text = "0"
 
-[node name="LoadSave" type="HBoxContainer" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer"]
+[node name="LoadSave" type="HBoxContainer" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer"]
 margin_top = 84.0
 margin_right = 417.0
 margin_bottom = 104.0
 
-[node name="Save" type="Button" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave"]
+[node name="Save" type="Button" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/LoadSave"]
 margin_right = 41.0
 margin_bottom = 20.0
 text = "Save"
@@ -297,22 +294,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/LoadSave"]
 margin_left = 45.0
 margin_right = 49.0
 margin_bottom = 20.0
 
-[node name="Load" type="Button" parent="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave"]
+[node name="Load" type="Button" parent="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/LoadSave"]
 margin_left = 53.0
 margin_right = 95.0
 margin_bottom = 20.0
 text = "Load"
 
-[node name="Cursor" type="Sprite" parent="VBoxContainer/Main/Title/TitleSubControl"]
+[node name="Cursor" type="Sprite" parent="VBoxContainer/Main/Settings/TitleSubControl"]
 scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 11 )
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Title"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Main/Settings"]
 visible = false
 self_modulate = Color( 0.4, 0.4, 0.4, 0.0392157 )
 margin_right = 1920.0
@@ -406,9 +403,16 @@ margin_bottom = 866.974
 CardName = "Your Journey Starts Here"
 CardDesc = "Buy upgrades to better your minions."
 CardPrice = 0
+CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
 nextCard1 = NodePath("../CardDev02")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
+BuffSpeed = 0.0
+BuffAttack = 0.0
+BuffPriests = 0.0
+BuffRange = 0.0
 
 [node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 970.932
@@ -417,10 +421,17 @@ margin_right = 1270.93
 margin_bottom = 868.843
 CardName = "Speed I"
 CardDesc = "Minion speed increased by 20%"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
 nextCard1 = NodePath("../CardDev04")
 nextCard2 = NodePath("../CardDev05")
 nextCard3 = NodePath("../CardDev06")
 BuffSpeed = 0.2
+BuffAttack = 0.0
+BuffPriests = 0.0
+BuffRange = 0.0
 
 [node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1423.55
@@ -429,15 +440,36 @@ margin_right = 1723.55
 margin_bottom = 509.88
 CardName = "Speed II"
 CardDesc = "Minion speed inreased by another 20%"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
 BuffSpeed = 0.2
+BuffAttack = 0.0
+BuffPriests = 0.0
+BuffRange = 0.0
 
 [node name="CardDev05" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1423.55
 margin_top = 566.974
 margin_right = 1723.55
 margin_bottom = 866.974
+CardName = "Priest-O-Gone"
 CardDesc = "Each minion gains the chance to conjure one priest per ship to become a new minion."
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
+BuffSpeed = 0.0
+BuffAttack = 0.0
 BuffPriests = 1.0
+BuffRange = 0.0
 
 [node name="CardDev06" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1423.55
@@ -446,7 +478,17 @@ margin_right = 1723.55
 margin_bottom = 1227.15
 CardName = "Attack 1"
 CardDesc = "Minion hit-chance increased by 10%"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
+BuffSpeed = 0.0
 BuffAttack = 0.1
+BuffPriests = 0.0
+BuffRange = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
 margin_left = 1396.0
@@ -463,7 +505,7 @@ text = "Minion"
 margin_top = 18.0
 margin_right = 516.0
 margin_bottom = 518.0
-texture = SubResource( 6 )
+texture = SubResource( 5 )
 
 [node name="Label2" type="Label" parent="VBoxContainer/Main/Upgrade/HSplitContainer/VBoxContainer"]
 margin_top = 522.0
@@ -628,10 +670,10 @@ __meta__ = {
 visible = false
 position = Vector2( 969.094, 555.293 )
 scale = Vector2( 4.07639, 2.48084 )
-texture = SubResource( 7 )
-[connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer/Button" to="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer" method="_on_Button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2/Button" to="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2" method="_on_Button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Save" to="VBoxContainer/Main/Title/TitleSubControl" method="_on_Save_pressed"]
-[connection signal="pressed" from="VBoxContainer/Main/Title/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Load" to="VBoxContainer/Main/Title/TitleSubControl" method="_on_Load_pressed"]
+texture = SubResource( 6 )
+[connection signal="pressed" from="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer/Button" to="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2/Button" to="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/HBoxContainer2" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Save" to="VBoxContainer/Main/Settings/TitleSubControl" method="_on_Save_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main/Settings/TitleSubControl/InputSettings/VBoxContainer/LoadSave/Load" to="VBoxContainer/Main/Settings/TitleSubControl" method="_on_Load_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer" method="_on_TextureRect_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2/TextureRect" to="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer" method="_on_TextureRect_mouse_exited"]
