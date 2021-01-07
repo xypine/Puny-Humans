@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Fonts/Prefabs/Title.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Assets/textures/grid/simpleGrid_withAlpha.jpg" type="Texture" id=10]
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=1]
 0/name = "simpleGrid_withAlpha.jpg 0"
 0/texture = ExtResource( 10 )
 0/tex_offset = Vector2( 0, 0 )
@@ -27,8 +27,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Start"
+[sub_resource type="Animation" id=2]
 length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:self_modulate")
@@ -125,7 +124,7 @@ range_item_cull_mask = 524288
 
 [node name="ShipGrid" type="TileMap" parent="."]
 scale = Vector2( 3.136, 3.136 )
-tile_set = SubResource( 2 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
 script = ExtResource( 6 )
@@ -142,7 +141,7 @@ position = Vector2( 399.542, -466.082 )
 maxMen = 50.0
 men = 40.0
 priestPercent = 5.0
-value = 300
+value = 150
 
 [node name="ShipSmall4" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 304.053, -240.587 )
@@ -150,6 +149,62 @@ maxMen = 10.0
 men = 1.0
 priestPercent = 100.0
 value = 25
+
+[node name="ShipSmall6" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 240.227, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall7" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 175.817, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall8" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 112.181, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall9" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 48.9688, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall10" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 560.824, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall11" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 496.415, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall12" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 432.779, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
+
+[node name="ShipSmall13" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 369.566, -721.734 )
+maxMen = 20.0
+men = 20.0
+priestPercent = 10.0
+value = 150
 
 [node name="ShipSmall5" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 304.053, -369.716 )
@@ -163,7 +218,7 @@ position = Vector2( 208.051, -466.082 )
 maxMen = 25.0
 men = 25.0
 priestPercent = 70.0
-value = 300
+value = 150
 
 [node name="Cursor" type="TileMap" parent="."]
 light_mask = 524289
@@ -171,7 +226,7 @@ scale = Vector2( 3.136, 3.136 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -983034, 0, 0, -983028, 0, 0, -786423, 0, 0, -524279, 0, 0, 131076, 1, 0 )
+tile_data = PoolIntArray( -1507327, 0, 0, -1507325, 0, 0, -1507323, 0, 0, -1507321, 0, 0, -1507317, 0, 0, -1507315, 0, 0, -1507313, 0, 0, -1507311, 0, 0, -983034, 0, 0, -983028, 0, 0, -786423, 0, 0, -524279, 0, 0, 131076, 1, 0 )
 
 [node name="Minions" type="Node2D" parent="."]
 position = Vector2( 960, 950 )
@@ -181,7 +236,7 @@ script = ExtResource( 8 )
 
 [node name="Start" type="AnimationPlayer" parent="."]
 autoplay = "Start"
-anims/Start = SubResource( 1 )
+anims/Start = SubResource( 2 )
 
 [node name="Cameras" type="Node2D" parent="."]
 

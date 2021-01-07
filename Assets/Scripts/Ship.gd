@@ -37,29 +37,33 @@ func _process(_delta):
 	targetPos = global_position + $Textures.position
 	if dead:
 		return
-	healthbar.value = men
-	healthbar.rect_min_size.x = (26 + (men-20)*2)
 	var move = Vector2(0, 0)
-	if str(attacker) != "" and frame % 100 == 0:
-		var dir = evade()
-		move += dir
-	if str(attacker) != "" and frame % 90 == 0:
-		randomize()
-		var chance = (randi() % 2 == 0)
-		if chance and priests > 0:
-			attack(attacker)
+	if global_position.y < 0:
+		pass
+	else:
+		healthbar.value = men
+		healthbar.rect_min_size.x = (26 + (men-20)*2)
+		if str(attacker) != "" and frame % 100 == 0:
+			var dir = evade()
+			move += dir
+		if str(attacker) != "" and frame % 90 == 0:
+			randomize()
+			var chance = (randi() % 2 == 0)
+			if chance and priests > 0:
+				attack(attacker)
+		if men < 1:
+			dead = true
+			var ind = GameData.ships.find(self)
+			GameData.ships.remove(ind)
+			GameData.money += value
+			$AnimationPlayer.play("Die")
+			attacker.gotKill(self)
+	
 	if frame % 200 == 0:
 		move += Vector2(0, 1)
 	if move != Vector2(0, 0):
 		update_look_direction(move)
 		do_move(move)
-	if men < 1:
-		dead = true
-		var ind = GameData.ships.find(self)
-		GameData.ships.remove(ind)
-		GameData.money += value
-		$AnimationPlayer.play("Die")
-		attacker.gotKill(self)
 	frame += 1
 func attack(attackr):
 	$AnimationPlayer.play("Attack")
