@@ -21,7 +21,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Puny Humans"
-config/description="Originally an entry for the Weekly Game Jam #182"
+config/description="Originally an entry for the Weekly Game Jam #182
+
+Made by Elias Arno Eskelinen aka \"Jonnelafin\", 2021"
 run/main_scene="res://Assets/UI/Upgrade/UpgradeScreen.tscn"
 boot_splash/image="res://Assets/meta/banner/untitled.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )

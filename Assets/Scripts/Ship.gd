@@ -46,7 +46,7 @@ func _process(delta):
 	if str(attacker) != "" and frame % 90 == 0:
 		randomize()
 		var chance = (randi() % 2 == 0)
-		if chance:
+		if chance and priests > 0:
 			attack(attacker)
 	if frame % 200 == 0:
 		move += Vector2(0, 1)

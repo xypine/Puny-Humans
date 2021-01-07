@@ -28,7 +28,16 @@ func _ready():
 func toInt(vec):
 	return Vector2(int(floor(vec.x*.5))*2, int(floor(vec.y*.5))*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var dead = false
 func _process(delta):
+	if dead:
+		return
+	if health < 1:
+		dead = true
+		var ind = get_parent().minions.indexOf(self)
+		get_parent().minions.remove(ind)
+		get_parent().remove_child(self)
+		queue_free()
 	$Arm/Sprite/Node2D.rotation_degrees = -$Arm.rotation_degrees
 	$Arm/Sprite/Node2D/ProgressBar.value = health
 #	$Arm/ProgressBar.rect_rotation = - $Arm.rotation_degrees

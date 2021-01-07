@@ -116,6 +116,7 @@ __meta__ = {
 }
 
 [node name="[Q]" type="MarginContainer" parent="VBoxContainer/Main"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -345,7 +346,6 @@ render_target_update_mode = 0
 position = Vector2( 0, 32 )
 
 [node name="Upgrade" type="MarginContainer" parent="VBoxContainer/Main"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -371,13 +371,15 @@ margin_right = 1384.0
 margin_bottom = 990.0
 rect_min_size = Vector2( 1199.38, 0 )
 follow_focus = true
-scroll_horizontal = 100
+scroll_horizontal = 500
 scroll_vertical = 100
 script = ExtResource( 15 )
 
 [node name="Helper2" type="Control" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer"]
-margin_right = 3000.0
-margin_bottom = 2500.0
+margin_left = -500.0
+margin_top = -100.0
+margin_right = 2500.0
+margin_bottom = 2400.0
 rect_min_size = Vector2( 3000, 2500 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -406,7 +408,7 @@ CardPrice = 0
 CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
-nextCard1 = NodePath("../CardDev02")
+nextCard1 = NodePath("../CardDev05")
 nextCard2 = NodePath("")
 nextCard3 = NodePath("")
 BuffSpeed = 0.0
@@ -415,19 +417,19 @@ BuffPriests = 0.0
 BuffRange = 0.0
 
 [node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 970.932
-margin_top = 568.843
-margin_right = 1270.93
-margin_bottom = 868.843
+margin_left = 1428.94
+margin_top = 574.407
+margin_right = 1728.94
+margin_bottom = 874.407
 CardName = "Speed I"
 CardDesc = "Minion speed increased by 20%"
 CardPrice = 300
 CPrice_currency = "$"
 bought = false
 needsPreviusBought = true
-nextCard1 = NodePath("../CardDev04")
-nextCard2 = NodePath("../CardDev05")
-nextCard3 = NodePath("../CardDev06")
+nextCard1 = NodePath("")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
 BuffSpeed = 0.2
 BuffAttack = 0.0
 BuffPriests = 0.0
@@ -453,9 +455,9 @@ BuffPriests = 0.0
 BuffRange = 0.0
 
 [node name="CardDev05" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1423.55
+margin_left = 949.51
 margin_top = 566.974
-margin_right = 1723.55
+margin_right = 1249.51
 margin_bottom = 866.974
 CardName = "Priest-O-Gone"
 CardDesc = "Each minion gains the chance to conjure one priest per ship to become a new minion."
@@ -463,9 +465,9 @@ CardPrice = 300
 CPrice_currency = "$"
 bought = false
 needsPreviusBought = true
-nextCard1 = NodePath("")
-nextCard2 = NodePath("")
-nextCard3 = NodePath("")
+nextCard1 = NodePath("../CardDev02")
+nextCard2 = NodePath("../CardDev04")
+nextCard3 = NodePath("../CardDev06")
 BuffSpeed = 0.0
 BuffAttack = 0.0
 BuffPriests = 1.0
