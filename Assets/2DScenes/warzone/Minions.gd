@@ -18,7 +18,7 @@ func getFreeM():
 	return ""
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	minions = get_children()
 	for i in minions:
 		i.basePos = global_position
@@ -29,4 +29,5 @@ func _process(delta):
 			m.target = pos
 			m.idle = false
 	elif Input.is_action_just_pressed("ui_grab"):
-		print(GameData.isGameOn)
+		pass
+#		print(GameData.isGameOn)

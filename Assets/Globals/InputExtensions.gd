@@ -32,7 +32,7 @@ func _unhandled_input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	touchJustNow = false
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("game_quit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("game_restart"):

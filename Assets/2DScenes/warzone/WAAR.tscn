@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/2DScenes/warzone/new_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/textures/lights/light.png" type="Texture" id=2]
@@ -9,6 +9,23 @@
 [ext_resource path="res://Assets/2DScenes/Figures/minions/minion_small.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/2DScenes/warzone/Minions.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Fonts/Prefabs/Title.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Assets/textures/grid/simpleGrid_withAlpha.jpg" type="Texture" id=10]
+
+[sub_resource type="TileSet" id=2]
+0/name = "simpleGrid_withAlpha.jpg 0"
+0/texture = ExtResource( 10 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 0 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [sub_resource type="Animation" id=1]
 resource_name = "Start"
@@ -108,6 +125,7 @@ range_item_cull_mask = 524288
 
 [node name="ShipGrid" type="TileMap" parent="."]
 scale = Vector2( 3.136, 3.136 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
 script = ExtResource( 6 )

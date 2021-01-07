@@ -21,7 +21,7 @@ func _ready():
 	var light = $"../ShipMini/Light2D"
 	light.queue_free()
 var frame = 0
-func _process(delta):
+func _process(_delta):
 	if frame % 200 == 0:
 		pass
 #		$"../ShipMini".position.y += 1
@@ -37,7 +37,7 @@ func request_move(pawn, direction):
 	
 	var cell_target_type = get_cellv(cell_target)
 	if(get_cell_pawn(cell_target) != pawn):
-		print(cell_target_type)
+#		print(cell_target_type)
 		match cell_target_type:
 			CellType.EMPTY:
 				return update_pawn_position(pawn, cell_start, cell_target)

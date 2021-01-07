@@ -29,12 +29,12 @@ func toInt(vec):
 	return Vector2(int(floor(vec.x*.5))*2, int(floor(vec.y*.5))*2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var dead = false
-func _process(delta):
+func _process(_delta):
 	if dead:
 		return
 	if health < 1:
 		dead = true
-		var ind = get_parent().minions.indexOf(self)
+		var ind = get_parent().minions.find(self)
 		get_parent().minions.remove(ind)
 		get_parent().remove_child(self)
 		queue_free()

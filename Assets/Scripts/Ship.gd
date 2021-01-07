@@ -22,7 +22,7 @@ var lightm = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	priests = (men*0.01)*priestPercent
-	print(priests)
+#	print(priests)
 	healthbar.max_value = maxMen
 	healthbar.value = men
 	for i in $Textures/T/.get_children():
@@ -31,7 +31,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var dead = false
 var frame = 0
-func _process(delta):
+func _process(_delta):
 	if str(lightm) != "":
 		lightm.position = global_position
 	targetPos = global_position + $Textures.position
@@ -77,7 +77,7 @@ func move_to(target_position, dir):
 
 	# Move the node to the target cell instantly,
 	# and animate the sprite moving from the start to the target cell
-	var move_direction = (target_position - position).normalized()
+#	var move_direction = (target_position - position).normalized()
 #	$Tween.interpolate_property($Pivot, "position", - move_direction * 32, Vector2(), $AnimationPlayer.current_animation_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	play_move(dir)
 	yield($Move, "animation_finished")
@@ -138,4 +138,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Die":
 		if str(lightm) != "":
 			lightm.queue_free()
+		Grid.set_cellv(Grid.world_to_map(position), -1)
+		print("Ship shunk at " + str(Grid.world_to_map(position)))
 		queue_free()
