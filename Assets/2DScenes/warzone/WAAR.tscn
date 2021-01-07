@@ -119,13 +119,34 @@ men = 10.0
 priestPercent = 20.0
 value = 300
 
+[node name="ShipSmall2" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 399.542, -593.842 )
+maxMen = 10.0
+men = 10.0
+priestPercent = 20.0
+value = 300
+
+[node name="ShipSmall4" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 304.053, -240.587 )
+maxMen = 30.0
+men = 30.0
+priestPercent = 10.0
+value = 300
+
+[node name="ShipSmall3" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 208.051, -593.842 )
+maxMen = 10.0
+men = 10.0
+priestPercent = 20.0
+value = 300
+
 [node name="Cursor" type="TileMap" parent="."]
 light_mask = 524289
 scale = Vector2( 3.136, 3.136 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 131076, 1, 0 )
+tile_data = PoolIntArray( -1245178, 0, 0, -1245172, 0, 0, -524279, 0, 0, 131076, 1, 0 )
 
 [node name="Minions" type="Node2D" parent="."]
 position = Vector2( 960, 950 )
@@ -136,3 +157,21 @@ script = ExtResource( 8 )
 [node name="Start" type="AnimationPlayer" parent="."]
 autoplay = "Start"
 anims/Start = SubResource( 1 )
+
+[node name="Cameras" type="Node2D" parent="."]
+
+[node name="ShipMini" type="Node2D" parent="."]
+position = Vector2( 153.566, 375.163 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="Light2D" type="Light2D" parent="ShipMini"]
+texture = ExtResource( 2 )
+texture_scale = 0.2
+energy = 0.98
+range_height = 43.4
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 19.0818, -144.798 )
+points = PoolVector2Array( 40, 520, 420, 520 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )

@@ -17,6 +17,7 @@ var priests = (men*0.01)*priestPercent
 var textures = []
 
 var targetPos = Vector2(0, 0)
+var lightm = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,10 +32,13 @@ func _ready():
 var dead = false
 var frame = 0
 func _process(delta):
+	if str(lightm) != "":
+		lightm.position = global_position
 	targetPos = global_position + $Textures.position
 	if dead:
 		return
 	healthbar.value = men
+	healthbar.rect_min_size.x = (26 + (men-20)*2)
 	var move = Vector2(0, 0)
 	if str(attacker) != "" and frame % 100 == 0:
 		var dir = evade()
@@ -132,4 +136,6 @@ func evade():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Die":
+		if str(lightm) != "":
+			lightm.queue_free()
 		queue_free()

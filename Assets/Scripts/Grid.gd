@@ -11,10 +11,21 @@ enum CellType { EMPTY = -1, ShipSmall, ShipMedium, ShipBig }
 func _ready():
 	GameData.ships = []
 	for child in get_children():
+		var light = $"../ShipMini/Light2D".duplicate()
+		light.position = child.global_position
+		$"../ShipMini".add_child(light)
+		child.lightm = light
 		GameData.ships.append(child)
 		set_cellv(world_to_map(child.position), child.type)
 #		child.position = map_to_world(world_to_map(child.position)) + Vector2(32, 32)
-
+	var light = $"../ShipMini/Light2D"
+	light.queue_free()
+var frame = 0
+func _process(delta):
+	if frame % 200 == 0:
+		pass
+#		$"../ShipMini".position.y += 1
+	frame += 1
 func get_cell_pawn(coordinates):
 	for node in get_children():
 		if world_to_map(node.position) == coordinates:

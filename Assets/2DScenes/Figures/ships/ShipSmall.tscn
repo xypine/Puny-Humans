@@ -203,6 +203,7 @@ margin_left = -13.4266
 margin_top = 13.1254
 margin_right = 12.5734
 margin_bottom = 17.1254
+rect_min_size = Vector2( 26, 0 )
 max_value = 48.0
 value = 48.0
 percent_visible = false
