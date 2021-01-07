@@ -371,13 +371,15 @@ margin_right = 1384.0
 margin_bottom = 990.0
 rect_min_size = Vector2( 1199.38, 0 )
 follow_focus = true
-scroll_horizontal = 100
+scroll_horizontal = 1282
 scroll_vertical = 100
 script = ExtResource( 15 )
 
 [node name="Helper2" type="Control" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer"]
-margin_right = 3000.0
-margin_bottom = 2500.0
+margin_left = -1282.0
+margin_top = -100.0
+margin_right = 1718.0
+margin_bottom = 2400.0
 rect_min_size = Vector2( 3000, 2500 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -395,7 +397,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardDev01" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+[node name="Start" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 531.165
 margin_top = 566.974
 margin_right = 831.165
@@ -406,7 +408,7 @@ CardPrice = 0
 CPrice_currency = "$"
 bought = true
 needsPreviusBought = false
-nextCard1 = NodePath("../CardDev05")
+nextCard1 = NodePath("../Priests1")
 nextCard2 = NodePath("")
 nextCard3 = NodePath("")
 BuffSpeed = 0.0
@@ -414,7 +416,7 @@ BuffAttack = 0.0
 BuffPriests = 0.0
 BuffRange = 0.0
 
-[node name="CardDev05" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+[node name="Priests1" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 949.51
 margin_top = 566.974
 margin_right = 1249.51
@@ -425,26 +427,26 @@ CardPrice = 300
 CPrice_currency = "$"
 bought = false
 needsPreviusBought = true
-nextCard1 = NodePath("../CardDev02")
-nextCard2 = NodePath("../CardDev04")
-nextCard3 = NodePath("../CardDev06")
+nextCard1 = NodePath("../Speed1")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("../Attack1")
 BuffSpeed = 0.0
 BuffAttack = 0.0
 BuffPriests = 1.0
 BuffRange = 0.0
 
-[node name="CardDev02" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1428.94
-margin_top = 574.407
-margin_right = 1728.94
-margin_bottom = 874.407
+[node name="Speed1" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 1378.0
+margin_top = 368.139
+margin_right = 1678.0
+margin_bottom = 668.139
 CardName = "Speed I"
 CardDesc = "Minion speed increased by 20%"
 CardPrice = 300
 CPrice_currency = "$"
 bought = false
 needsPreviusBought = true
-nextCard1 = NodePath("")
+nextCard1 = NodePath("../Speed2")
 nextCard2 = NodePath("")
 nextCard3 = NodePath("")
 BuffSpeed = 0.2
@@ -452,12 +454,31 @@ BuffAttack = 0.0
 BuffPriests = 0.0
 BuffRange = 0.0
 
-[node name="CardDev04" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1423.55
-margin_top = 209.88
-margin_right = 1723.55
-margin_bottom = 509.88
+[node name="Speed2" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 1790.94
+margin_top = 263.9
+margin_right = 2090.94
+margin_bottom = 563.9
 CardName = "Speed II"
+CardDesc = "Minion speed inreased by another 20%"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("../Speed3")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
+BuffSpeed = 0.2
+BuffAttack = 0.0
+BuffPriests = 0.0
+BuffRange = 0.0
+
+[node name="Speed3" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 2194.8
+margin_top = 199.31
+margin_right = 2494.8
+margin_bottom = 499.31
+CardName = "Speed III"
 CardDesc = "Minion speed inreased by another 20%"
 CardPrice = 300
 CPrice_currency = "$"
@@ -471,12 +492,50 @@ BuffAttack = 0.0
 BuffPriests = 0.0
 BuffRange = 0.0
 
-[node name="CardDev06" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 1423.55
-margin_top = 927.151
-margin_right = 1723.55
-margin_bottom = 1227.15
-CardName = "Attack 1"
+[node name="Attack1" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 1382.83
+margin_top = 702.974
+margin_right = 1682.83
+margin_bottom = 1002.97
+CardName = "Attack I"
+CardDesc = "Minion hit-chance increased by 10%"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("../Attack2")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
+BuffSpeed = 0.0
+BuffAttack = 0.1
+BuffPriests = 0.0
+BuffRange = 0.0
+
+[node name="Attack2" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 1788.39
+margin_top = 757.974
+margin_right = 2088.39
+margin_bottom = 1057.97
+CardName = "Attack II"
+CardDesc = "Minion hit-chance increased by 10%"
+CardPrice = 300
+CPrice_currency = "$"
+bought = false
+needsPreviusBought = true
+nextCard1 = NodePath("../Attack3")
+nextCard2 = NodePath("")
+nextCard3 = NodePath("")
+BuffSpeed = 0.0
+BuffAttack = 0.1
+BuffPriests = 0.0
+BuffRange = 0.0
+
+[node name="Attack3" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 2194.8
+margin_top = 804.974
+margin_right = 2494.8
+margin_bottom = 1104.97
+CardName = "Attack III"
 CardDesc = "Minion hit-chance increased by 10%"
 CardPrice = 300
 CPrice_currency = "$"

@@ -21,9 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Puny Humans"
-config/description="Originally an entry for the Weekly Game Jam #182
+config/description="Puny Humans
+-------------------
 
-Made by Elias Arno Eskelinen aka \"Jonnelafin\", 2021"
+Originally an entry for the Weekly Game Jam #182, the theme was \"Chutulu\"
+
+Made by Elias Arno Eskelinen aka \"Jonnelafin\", 2021
+all code under the MIT-License, art assets licensed under CC-BY-SA-4.0"
 run/main_scene="res://Assets/UI/Upgrade/UpgradeScreen.tscn"
 boot_splash/image="res://Assets/meta/banner/untitled.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
