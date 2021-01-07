@@ -21,11 +21,6 @@ func _ready():
 	var light = $"../ShipMini/Light2D"
 	light.queue_free()
 var frame = 0
-func _process(_delta):
-	if frame % 200 == 0:
-		pass
-#		$"../ShipMini".position.y += 1
-	frame += 1
 func get_cell_pawn(coordinates):
 	for node in get_children():
 		if world_to_map(node.position) == coordinates:

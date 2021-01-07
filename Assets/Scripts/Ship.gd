@@ -32,7 +32,7 @@ func _ready():
 var dead = false
 var frame = 0
 func _process(_delta):
-	if str(lightm) != "":
+	if is_instance_valid(lightm) and str(lightm) != "":
 		lightm.position = global_position
 	targetPos = global_position + $Textures.position
 	if dead:
@@ -62,7 +62,8 @@ func _process(_delta):
 	if frame % 200 == 0:
 		move += Vector2(0, 1)
 	if move != Vector2(0, 0):
-		update_look_direction(move)
+		if global_position.y >= 0:
+			update_look_direction(move)
 		do_move(move)
 	frame += 1
 func attack(attackr):

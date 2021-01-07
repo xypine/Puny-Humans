@@ -116,9 +116,10 @@ func _process(_delta):
 			updateInfo()
 			updateLinePoints()
 	else:
-		updateUnlocked()
-		updateInfo()
-		updateLinePoints()
+		pass
+#		updateUnlocked()
+#		updateInfo()
+#		updateLinePoints()
 
 
 func _on_Button_pressed():

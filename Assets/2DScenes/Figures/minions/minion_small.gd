@@ -43,19 +43,14 @@ func _process(_delta):
 #	$Arm/ProgressBar.rect_rotation = - $Arm.rotation_degrees
 	$Arm/Light2D.energy = (0.45/100)*health
 	isOnTarget = (global_position.distance_to(target) < 2 )
-	if isOnTarget:
-#		$Light2D.energy = .45
-		pass
-	else:
-#		$Light2D.energy = .33
-		
+	if not isOnTarget:
 		var direction = target - global_position
 		var vec = direction.normalized()
 		var localspeed = (vec*(speed) + direction*0.01)*GameData.BuffSpeed
 		global_position += localspeed
 	var targetv = get_target()
 	var notarget = false
-	if str(targetv) != "":
+	if is_instance_valid(targetv) and str(targetv) != "":
 		var dist = global_position.distance_to(targetv.global_position)
 		if dist < (radius*1.6*GameData.BuffRange):
 			target = targetv.targetPos
