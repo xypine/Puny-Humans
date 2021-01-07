@@ -152,58 +152,34 @@ value = 25
 
 [node name="ShipSmall6" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 240.227, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall7" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 175.817, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall8" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 112.181, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall9" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 48.9688, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall10" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 560.824, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall11" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 496.415, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall12" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 432.779, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall13" parent="ShipGrid" instance=ExtResource( 5 )]
 position = Vector2( 369.566, -721.734 )
-maxMen = 20.0
-men = 20.0
-priestPercent = 10.0
 value = 150
 
 [node name="ShipSmall5" parent="ShipGrid" instance=ExtResource( 5 )]
@@ -220,13 +196,27 @@ men = 25.0
 priestPercent = 70.0
 value = 150
 
+[node name="Big1" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 240.227, -944.976 )
+scale = Vector2( 1, 1 )
+maxMen = 200.0
+men = 200.0
+value = 150
+
+[node name="Big2" parent="ShipGrid" instance=ExtResource( 5 )]
+position = Vector2( 369.566, -944.976 )
+scale = Vector2( 1, 1 )
+maxMen = 200.0
+men = 200.0
+value = 150
+
 [node name="Cursor" type="TileMap" parent="."]
 light_mask = 524289
 scale = Vector2( 3.136, 3.136 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -1507327, 0, 0, -1507325, 0, 0, -1507323, 0, 0, -1507321, 0, 0, -1507317, 0, 0, -1507315, 0, 0, -1507313, 0, 0, -1507311, 0, 0, -983034, 0, 0, -983028, 0, 0, -786423, 0, 0, -524279, 0, 0, 131076, 1, 0 )
+tile_data = PoolIntArray( -1966073, 0, 0, -1966069, 0, 0, -1507327, 0, 0, -1507325, 0, 0, -1507323, 0, 0, -1507321, 0, 0, -1507317, 0, 0, -1507315, 0, 0, -1507313, 0, 0, -1507311, 0, 0, -983034, 0, 0, -983028, 0, 0, -786423, 0, 0, -524279, 0, 0, 131076, 1, 0 )
 
 [node name="Minions" type="Node2D" parent="."]
 position = Vector2( 960, 950 )

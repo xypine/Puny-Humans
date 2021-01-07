@@ -33,7 +33,7 @@ onready var line3 = $RelationshipLines/Line3
 onready var receivingPos = $Receiving
 onready var leavingPos = $RelationshipLines
 
-var stop = true
+var stop = false
 var unlocked = true
 var previus = ""
 # Called when the node enters the scene tree for the first time.
@@ -116,9 +116,8 @@ func _process(_delta):
 			updateInfo()
 			updateLinePoints()
 	else:
-		pass
-#		updateUnlocked()
-#		updateInfo()
+		updateUnlocked()
+		updateInfo()
 #		updateLinePoints()
 
 

@@ -456,15 +456,6 @@ CardName = "Priest-O-Gone II"
 CardDesc = "+ 2 priests per ship avaible to conjure into a minion."
 BuffPriests = 1.0
 
-[node name="Priests22" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
-margin_left = 2577.51
-margin_top = 728.88
-margin_right = 2877.51
-margin_bottom = 1028.88
-CardName = "Priest-O-Gone II"
-CardDesc = "+ 2 priests per ship avaible to conjure into a minion."
-BuffPriests = 1.0
-
 [node name="Attack1" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
 margin_left = 1382.83
 margin_top = 702.974
@@ -494,6 +485,15 @@ CardName = "Attack III"
 CardDesc = "Minion hit-chance increased by 10%"
 nextCard1 = NodePath("../Priests22")
 BuffAttack = 0.1
+
+[node name="Priests22" parent="VBoxContainer/Main/Upgrade/HSplitContainer/ScrollContainer/Helper2" instance=ExtResource( 4 )]
+margin_left = 2577.51
+margin_top = 728.88
+margin_right = 2877.51
+margin_bottom = 1028.88
+CardName = "Priest-O-Gone II"
+CardDesc = "+ 2 priests per ship avaible to conjure into a minion."
+BuffPriests = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Main/Upgrade/HSplitContainer"]
 margin_left = 1396.0
