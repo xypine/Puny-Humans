@@ -77,20 +77,11 @@ func move_to(target_position):
 #	yield($AnimationPlayer, "animation_finished")
 	
 	set_process(true)
+func play_move(dir):
+	match str(dir.x) + "," + str(dir.y):
+		"0,1":
+			$Move.play("01")
 func update_look_direction(direction):
-	print("---")
-	print(Vector2(0, 1).angle())
-	print(Vector2(1, 1).angle())
-	print(Vector2(1, 0).angle())
-	print(Vector2(1, -1).angle())
-	print(Vector2(0, -1).angle())
-	print(Vector2(-1, -1).angle())
-	print(Vector2(-1, 0).angle())
-	print(Vector2(-1, 1).angle())
-	print()
-	print(direction.angle())
-	print(direction)
-	print("...")
 	for i in textures:
 		i.visible = false
 	match str(direction.angle()):
